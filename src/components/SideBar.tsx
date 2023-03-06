@@ -1,7 +1,5 @@
-import { List, ListItem, ListSubheader, ListItemContent, ListItemButton, ListItemDecorator, Sheet, Box, Divider, Stack, styled } from '@mui/joy';
+import { List, ListItem, ListItemContent, ListItemButton, ListItemDecorator, Sheet, Box, Divider} from '@mui/joy';
 import React from 'react'
-import DashboardRoundedIcon from '@mui/icons-material/DashboardRounded';
-import AssignmentTurnedInRoundedIcon from '@mui/icons-material/AssignmentTurnedInRounded';
 import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
 import SpeedRoundedIcon from '@mui/icons-material/SpeedRounded';
 import SettingsRoundedIcon from '@mui/icons-material/SettingsRounded';
