@@ -2,10 +2,10 @@ import React from "react"
 import { Box, Sheet, Typography } from "@mui/joy";
 
 const Main = () => {
-    const run = 'vmdl.9619.1.json';
-    const run3 = 'vmdl.9619.2.json';
-    const run1 = 'compute-distances.1.1.json';
-    const run2 = 'tmc_cidra.550.1';
+    const run = 'run.json';
+    const run3 = 'run3.json';
+    const run1 = 'run1.json';
+    const run2 = 'run2.json';
 
     return ( 
         <Box
