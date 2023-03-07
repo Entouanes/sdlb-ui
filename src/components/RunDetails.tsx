@@ -2,10 +2,11 @@ import React from "react"
 import { Box, Typography } from "@mui/joy";
 import Attempt from "../utils/Attempt";
 import TabNav from "./TabNav";
+import RunOverviewTable from "../RunOverViewTable";
 
 
 const RunDetails = () => {
-    const attempt = new Attempt('compute-distances.1.1');
+    const attempt = new Attempt('vmdl.9619.1');
   
     return ( 
         <Box
@@ -13,7 +14,6 @@ const RunDetails = () => {
                 flex: 1,
                 pl: 28,
                 pr: 5,
-                py: 13,
                 display: 'flex',
                 flexDirection: 'column',
                 height: '100%',
@@ -28,8 +28,7 @@ const RunDetails = () => {
                     {attempt.name}: run {attempt.stateFile.runId}
                 </Typography>
             </Box>
-
-
+            <RunOverviewTable attempt={attempt}/>
             <TabNav attempt={attempt}/>           
         </Box>
      );
