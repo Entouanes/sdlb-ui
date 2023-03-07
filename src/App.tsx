@@ -11,7 +11,7 @@ import Attempt from './utils/Attempt';
 export default function App() {
   
   const x = new Attempt('vmdl.9619.1');
-  
+  console.log(x.rows)
   return (
     <CssVarsProvider>
       <CssBaseline />

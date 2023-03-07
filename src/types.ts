@@ -7,7 +7,7 @@ export type AttemptConfig = {
 };
 
 export type TaskRow = { 
-    type: 'task'; 
+    type: string; 
     data: Task[] 
 };
 
