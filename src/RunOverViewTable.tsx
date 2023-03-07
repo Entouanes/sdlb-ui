@@ -1,9 +1,8 @@
-import { Box, List, Typography } from "@mui/joy";
+import { Box, List, ListItemDecorator, Typography } from "@mui/joy";
 import React from "react";
 import { AttemptType } from "./types";
 import ListItem, { listItemClasses } from '@mui/joy/ListItem';
 import ListItemButton, { listItemButtonClasses } from '@mui/joy/ListItemButton';
-import IconButton from '@mui/joy/IconButton';
 import KeyboardArrowDown from '@mui/icons-material/KeyboardArrowDown';
 
 const RunOverviewTable = (props: { attempt: AttemptType; }) => {
@@ -20,28 +19,18 @@ const RunOverviewTable = (props: { attempt: AttemptType; }) => {
             >
             <List
                 size="sm"
-                sx={(theme) => ({
-                // Gatsby colors
-                '--joy-palette-primary-plainColor': '#8a4baf',
-                '--joy-palette-neutral-plainHoverBg': 'transparent',
-                '--joy-palette-neutral-plainActiveBg': 'transparent',
-                '--joy-palette-primary-plainHoverBg': 'transparent',
-                '--joy-palette-primary-plainActiveBg': 'transparent',
-                [theme.getColorSchemeSelector('dark')]: {
-                    '--joy-palette-text-secondary': '#635e69',
-                    '--joy-palette-primary-plainColor': '#d48cff',
-                },
-
+                sx={() => ({
                 '--List-insetStart': '32px',
-                '--ListItem-paddingY': '0px',
+                '--ListItem-paddingY': 'px',
                 '--ListItem-paddingRight': '16px',
-                '--ListItem-paddingLeft': '21px',
-                '--ListItem-startActionWidth': '0px',
-                '--ListItem-startActionTranslateX': '-50%',
+                '--ListItem-paddingLeft': '10px',
+                '--ListItem-startActionWidth': '28px',
+                '--ListItem-startActionTranslateX': '50%',
 
                 [`& .${listItemButtonClasses.root}`]: {
-                    borderLeft: '1px solid',
+                    border: '1px plain',
                     borderColor: 'divider',
+                    borderRadius: 4
                 },
                 [`& .${listItemButtonClasses.root}.${listItemButtonClasses.selected}`]: {
                     borderColor: 'currentColor',
@@ -58,19 +47,15 @@ const RunOverviewTable = (props: { attempt: AttemptType; }) => {
                 nested
                 sx={{ my: 1 }}
                 startAction={
-                    <IconButton
-                    variant="plain"
-                    size="sm"
-                    color="neutral"
-                    onClick={() => setOpen(!open)}
-                    >
-                    <KeyboardArrowDown
-                        sx={{ transform: open ? 'initial' : 'rotate(-90deg)' }}
-                    />
-                    </IconButton>
+                    <ListItemDecorator>
+                        <KeyboardArrowDown
+                            sx={{ transform: open ? 'initial' : 'rotate(-90deg)' }}
+                        />
+                    </ListItemDecorator>
                 }
                 >
                 <ListItem>
+                <ListItemButton variant="plain" onClick={() => setOpen(!open)}>
                     <Typography
                     level="inherit"
                     sx={{
@@ -80,24 +65,21 @@ const RunOverviewTable = (props: { attempt: AttemptType; }) => {
                     >
                         Details
                     </Typography>
+                </ListItemButton>
                 </ListItem>
                 {open && (
                     <List sx={{ '--ListItem-paddingY': '8px' }}>
                     <ListItem>
-                        <ListItemButton>Overview</ListItemButton>
+                        Overview
                     </ListItem>
                     <ListItem>
-                        <ListItemButton>
-                        0. Set Up Your Development Environment
-                        </ListItemButton>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit
                     </ListItem>
                     <ListItem>
-                        <ListItemButton>
-                        1. Create and Deploy Your First Gatsby Site
-                        </ListItemButton>
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorem nam non a alias consectetur tempore voluptas? Id cum assumenda, fuga officia, deleniti quam iusto modi illo dolorem reprehenderit vitae perspiciatis.
                     </ListItem>
                     <ListItem>
-                        <ListItemButton>2. Use and Style React components</ListItemButton>
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto, doloremque molestiae. Quam sequi cumque ad impedit sit? Incidunt, at officia illo distinctio sequi labore fugit, quod minus dignissimos provident molestiae.
                     </ListItem>
                     </List>
                 )}

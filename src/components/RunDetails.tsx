@@ -18,7 +18,6 @@ const RunDetails = () => {
                 flexDirection: 'column',
                 height: '100%',
                 overflow: 'hidden',
-                gap: 1,
             }}
         >
             <Box sx={{
