@@ -1,15 +1,26 @@
-import { StateFile } from "../types"
+import { Run, StateFile } from "../types"
 import { TaskRow } from "../components/Timeline/MyVirtualizedTimeline";
 
 export default class Attempt {
     stateFile: StateFile; 
     name: string; 
     rows: TaskRow[];
+    run: Run;
     
     constructor(fileName: string) {
         this.stateFile = require('/home/coma/sdlb-ui/src/assets/state/' + fileName);
         this.name = this.stateFile.appConfig.applicationName;
         this.rows = this.getTaskRow();
+        this.run =  {
+            flow_id: 'HelloFlow',
+            run_number: 1,
+            status: 'completed',
+            user: 'test',
+            user_name: 'testName',
+            ts_epoch: Math.min(...(this.rows.flatMap(row => row.data.map(t => t.started_at!).filter(x=>x)))) - 10, // start 10ms earlier
+            finished_at: Math.max(...(this.rows.flatMap(row => row.data.map(t => t.finished_at!).filter(x=>x)))),
+            system_tags: []
+        }
     }
 
     getTaskRow() {

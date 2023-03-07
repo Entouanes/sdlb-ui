@@ -1,5 +1,5 @@
 import React from "react"
-import TimelineTest from "../pages/TimelineTest";
+import TimelineTest from "./Timeline";
 import { Box, Sheet, Typography } from "@mui/joy";
 
 const Main = () => {
@@ -43,22 +43,6 @@ const Main = () => {
                     </Box>
                     
                 </Sheet>
-                {/* <Sheet 
-                    variant="outlined"
-                    sx={{
-                        display: 'flex',
-                        flexDirection: 'column',
-                        minWidth: '40%',
-                        borderRadius: 8,
-                        m: 2,
-                        p: 3
-                    }}
-                >
-                        <Typography level="h3">
-                            Action:
-                        </Typography>
-                    
-                </Sheet> */}
             </Sheet>
         </Box>
      );
