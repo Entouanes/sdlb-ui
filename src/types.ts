@@ -1,3 +1,5 @@
+import { TaskRow } from "./components/Timeline/MyVirtualizedTimeline";
+
 export type AttemptConfig = {
     name: string;
     runId : number;
@@ -6,6 +8,12 @@ export type AttemptConfig = {
     attemptStartTime : Date;  
 };
 
+export type AttemptType = {
+    stateFile: StateFile; 
+    name: string; 
+    rows: TaskRow[];
+    run: Run;
+}
 
 export interface MetaDataBaseObject {
     flow_id: string;

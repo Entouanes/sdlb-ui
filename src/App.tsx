@@ -3,8 +3,8 @@ import { CssVarsProvider } from '@mui/joy/styles';
 import { BrowserRouter as Router } from 'react-router-dom';
 import Header from './components/Header'
 import SideBar from './components/SideBar'
-import Main from './components/Main'
 import React from 'react';
+import RunDetails from './components/RunDetails';
 
 
 
@@ -16,7 +16,7 @@ export default function App() {
       <Header />
       <SideBar />
       <Router>
-        <Main/>
+        <RunDetails/>
       </Router>
     </CssVarsProvider>
   );

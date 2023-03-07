@@ -10,19 +10,23 @@ export default class Attempt {
     constructor(fileName: string) {
         this.stateFile = require('/home/coma/sdlb-ui/src/assets/state/' + fileName);
         this.name = this.stateFile.appConfig.applicationName;
-        this.rows = this.getTaskRow();
+        this.rows = this.getTaskRow().sort(this.cmp);
         this.run =  {
-            flow_id: 'HelloFlow',
-            run_number: 1,
+            flow_id: this.name,
+            run_number: this.stateFile.runId,
             status: 'completed',
-            user: 'test',
-            user_name: 'testName',
+            user: 'undefined',
+            user_name: 'undefined',
             ts_epoch: Math.min(...(this.rows.flatMap(row => row.data.map(t => t.started_at!).filter(x=>x)))) - 10, // start 10ms earlier
             finished_at: Math.max(...(this.rows.flatMap(row => row.data.map(t => t.finished_at!).filter(x=>x)))),
             system_tags: []
         }
     }
 
+    /**
+     * Iterate through the statefile's actionsState and create a TaskRow array.
+     * @returns TaskRow[]
+     */
     getTaskRow() {
         const taskRow : TaskRow[] = [];
         const actionsStateEntries = Object.entries(this.stateFile.actionsState);
@@ -35,13 +39,13 @@ export default class Attempt {
                             flow_id: this.name,
                             run_number: this.stateFile.runId,
                             step_name: entry[0],
-                            task_id: 2,
+                            task_id: 0,
                             user_name: "undefined",
                             status: entry[1].state == "SUCCEEDED" ? "completed" : (entry[1].state == "SKIPPED" ? "unknown" : "failed"),
                             ts_epoch: new Date(this.stateFile.runStartTime).getTime(), // not used
                             started_at: new Date(entry[1].startTstmp).getTime(),
-                            duration: this.durationMicro(entry[1].duration), // should be computed from started/finished_at
-                            finished_at: new Date(entry[1].startTstmp).getTime() + this.durationMicro(entry[1].duration), 
+                            duration: this.durationMicro(entry[1].duration) == 0 ? 1 : this.durationMicro(entry[1].duration), // should be computed from started/finished_at
+                            finished_at: new Date(entry[1].startTstmp).getTime() + (this.durationMicro(entry[1].duration) == 0 ? 1 : this.durationMicro(entry[1].duration)), 
                             attempt_id: this.stateFile.attemptId,
                             tags: [],
                             system_tags: []
@@ -50,9 +54,14 @@ export default class Attempt {
                 },
             )
         })
+        console.log(taskRow)
         return taskRow;
     }
-
+    /**
+     * Utility function that translates the given duration of the action into the corresponding duration in milliseconds
+     * @param duration 
+     * @returns number
+     */
     durationMicro = (duration: string) => {
         duration = duration.split('T')[1];
         
@@ -80,4 +89,19 @@ export default class Attempt {
         }
       }
     
+    /**
+     * Utility function for comparisons in the default "Array.sort()" function
+     * @param a 
+     * @param b 
+     * @returns
+     */
+     private cmp(a: any, b: any) {
+        if (a["data"][0]["started_at"] < b["data"][0]["started_at"]) {
+            return -1;
+        }
+        if (a["data"][0]["started_at"] > b["data"][0]["started_at"]) {
+            return 1;
+        }
+        return 0;
+    } 
 }
