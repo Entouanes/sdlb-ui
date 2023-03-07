@@ -1,4 +1,5 @@
-import { StateFile, TaskRow } from "../types"
+import { StateFile } from "../types"
+import { TaskRow } from "../components/Timeline/MyVirtualizedTimeline";
 
 export default class Attempt {
     stateFile: StateFile; 
@@ -12,12 +13,12 @@ export default class Attempt {
     }
 
     getTaskRow() {
-        let taskRow : TaskRow[] = [];
-        let actionsStateEntries = Object.entries(this.stateFile.actionsState);
+        const taskRow : TaskRow[] = [];
+        const actionsStateEntries = Object.entries(this.stateFile.actionsState);
         actionsStateEntries.forEach((entry: any) => {
             taskRow.push(
                 {
-                    type: "action",
+                    type: "task",
                     data: [
                         {
                             flow_id: this.name,
@@ -29,6 +30,7 @@ export default class Attempt {
                             ts_epoch: new Date(this.stateFile.runStartTime).getTime(), // not used
                             started_at: new Date(entry[1].startTstmp).getTime(),
                             duration: this.durationMicro(entry[1].duration), // should be computed from started/finished_at
+                            finished_at: new Date(entry[1].startTstmp).getTime() + this.durationMicro(entry[1].duration), 
                             attempt_id: this.stateFile.attemptId,
                             tags: [],
                             system_tags: []

@@ -6,10 +6,6 @@ export type AttemptConfig = {
     attemptStartTime : Date;  
 };
 
-export type TaskRow = { 
-    type: string; 
-    data: Task[] 
-};
 
 export interface MetaDataBaseObject {
     flow_id: string;
@@ -30,8 +26,11 @@ export interface Task extends MetaDataBaseObject {
     foreach_label?: string;
     finished_at?: number;
     duration?: number;
-    status: 'running' | 'completed' | 'failed' | 'unknown' | 'pending' | 'refining';
+    status: TaskStatus;
 }
+
+export type TaskStatus = 'running' | 'completed' | 'failed' | 'unknown' | 'pending' | 'refining';
+
 
 export type StateFile = {
     appConfig : {
@@ -52,3 +51,47 @@ export type StateFile = {
         duration: string
     }    
 }
+
+
+  export type Flow = MetaDataBaseObject;
+  
+  export type RunStatus = {
+    completed: string;
+    running: string;
+    failed: string;
+  };
+  
+  export interface Run extends MetaDataBaseObject {
+    run_number: number;
+    run?: string;
+    status: keyof RunStatus;
+    user: string | null;
+    finished_at?: number;
+    run_id?: string;
+    duration?: number;
+  }
+  
+  export interface Step extends MetaDataBaseObject {
+    run_number: number;
+    run_id?: string;
+    step_name: string;
+    finished_at?: number;
+    duration?: number;
+  }
+  
+  export interface RunParam {
+    [key: string]: {
+      value: string;
+    };
+  }
+  
+  export interface Log {
+    row: number;
+    line: string;
+    timestamp?: number;
+  }
+  
+  export type QueryParam = string | null;
+  
+  export type AsyncStatus = 'NotAsked' | 'Ok' | 'Error' | 'Loading';
+  

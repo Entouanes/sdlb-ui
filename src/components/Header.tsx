@@ -1,34 +1,15 @@
 import React from 'react'
-import TimerRoundedIcon from '@mui/icons-material/TimerRounded';
-import SettingsRoundedIcon from '@mui/icons-material/SettingsRounded';
 
 import {
     List,
     ListItem, 
-    ListSubheader, 
-    ListItemContent, 
-    ListItemButton,
     Sheet,
-    Tabs,
-    TabList,
-    Tab,
-    Stack,
-    AspectRatio,
-    Box,
     Typography,
     Divider,
     Breadcrumbs,
     Link
 } from '@mui/joy'
-import { styled } from '@mui/joy/styles';
 
-
-const Item = styled(Sheet)(({ theme }) => ({
-    ...theme.typography.body2,
-    padding: theme.spacing(1),
-    textAlign: 'center',
-    color: theme.vars.palette.text.tertiary,
-}));
 
 const Header = () => {
     return ( 

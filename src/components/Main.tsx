@@ -1,12 +1,8 @@
 import React from "react"
+import TimelineTest from "../pages/TimelineTest";
 import { Box, Sheet, Typography } from "@mui/joy";
 
 const Main = () => {
-    const run = 'run.json';
-    const run3 = 'run3.json';
-    const run1 = 'run1.json';
-    const run2 = 'run2.json';
-
     return ( 
         <Box
             sx={{
@@ -30,26 +26,24 @@ const Main = () => {
                 sx={{
                     display: "flex",
                     flexDirection: "row",
-                    justifyContent: "left",
+                    justifyContent: "center",
                 }}
             >   
                 <Sheet
                     variant="outlined"
-                    sx={{
-                        minWidth: '50%', 
+                    sx={{ 
                         borderRadius: 8,
+                        minWidth: '100%',
                         m: 2,
                         p: 3,
                     }}
                 >
                     <Box>
-                        <Typography level='h3'>
-                            Trace
-                        </Typography>
+                        <TimelineTest />
                     </Box>
                     
                 </Sheet>
-                <Sheet 
+                {/* <Sheet 
                     variant="outlined"
                     sx={{
                         display: 'flex',
@@ -64,7 +58,7 @@ const Main = () => {
                             Action:
                         </Typography>
                     
-                </Sheet>
+                </Sheet> */}
             </Sheet>
         </Box>
      );
