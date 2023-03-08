@@ -15,7 +15,7 @@ type TabNavProp = {
 const TabNav : React.FC<TabNavProp> = ({attempt}) => {
     return ( 
         <>
-            <Tabs aria-label="Basic tabs" defaultValue={0} sx={{borderRadius: 100}}>
+            <Tabs aria-label="Basic tabs" defaultValue={0}>
                 <Box
                     sx={{
                         display: 'flex',

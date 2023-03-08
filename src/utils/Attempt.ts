@@ -19,7 +19,7 @@ export default class Attempt {
             user_name: 'undefined',
             ts_epoch: Math.min(...(this.rows.flatMap(row => row.data.map(t => t.started_at!).filter(x=>x)))) - 10, // start 10ms earlier
             finished_at: Math.max(...(this.rows.flatMap(row => row.data.map(t => t.finished_at!).filter(x=>x)))),
-            system_tags: []
+            system_tags: [],
         }
     }
 
@@ -48,7 +48,8 @@ export default class Attempt {
                             finished_at: new Date(entry[1].startTstmp).getTime() + (this.durationMicro(entry[1].duration) == 0 ? 1 : this.durationMicro(entry[1].duration)), 
                             attempt_id: this.stateFile.attemptId,
                             tags: [],
-                            system_tags: []
+                            system_tags: [],
+                            metadata: entry[1].results
                         }
                     ]
                 },
