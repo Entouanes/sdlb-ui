@@ -4,6 +4,7 @@ import { AttemptType } from "../types";
 import ListItem/* , { listItemClasses }  */from '@mui/joy/ListItem';
 import ListItemButton/* , { listItemButtonClasses } */ from '@mui/joy/ListItemButton';
 import KeyboardArrowDown from '@mui/icons-material/KeyboardArrowDown';
+import { getISOString } from "../utils/date";
 
 const RunOverviewTable = (props: { attempt: AttemptType; }) => {
     const attempt : AttemptType = props.attempt;
@@ -37,7 +38,6 @@ const RunOverviewTable = (props: { attempt: AttemptType; }) => {
                     <Typography
                     level="inherit"
                     sx={{
-                        /* fontWeight: open ? 'bold' : undefined, */
                         color: open ? 'text.primary' : 'inherit',
                     }}
                     >
@@ -51,12 +51,22 @@ const RunOverviewTable = (props: { attempt: AttemptType; }) => {
                         <List>
                             <ListItem>
                                 <Typography level='body2' sx={{px: '2rem'}}>
-                                    Run started on {new Date(attempt.stateFile.runStartTime).toLocaleDateString()} at {new Date(attempt.stateFile.runStartTime).toTimeString().split(' ')[0]}
+                                    <b>Run start:</b> {getISOString(new Date(attempt.stateFile.runStartTime))}
                                 </Typography>
                             </ListItem>
                             <ListItem>
                                 <Typography level='body2' sx={{px: '2rem'}}>
-                                    Attempt {attempt.stateFile.attemptId} started on {new Date(attempt.stateFile.attemptStartTime).toLocaleDateString()} at {new Date(attempt.stateFile.attemptStartTime).toTimeString().split(' ')[0]}
+                                <b>Run finished at:</b> {getISOString(new Date(attempt.stateFile.attemptStartTime))}
+                                </Typography>
+                            </ListItem>
+                            <ListItem>
+                                <Typography level='body2' sx={{px: '2rem'}}>
+                                <b>Total duration:</b> xx:yy
+                                </Typography>
+                            </ListItem>
+                            <ListItem>
+                                <Typography level='body2' sx={{px: '2rem'}}>
+                                <b>Number of actions:</b> {attempt.rows.length}
                                 </Typography>
                             </ListItem>
                         </List>
