@@ -31,7 +31,7 @@ const SideBar = () => {
                     }}
                 >
                     <ListItem>
-                        <ListItemButton sx={{borderRadius: 5, transform: 'scale(1)'}}>
+                        <ListItemButton disabled sx={{borderRadius: 5, transform: 'scale(1)'}}>
                             <ListItemDecorator>
                                 <HomeRoundedIcon />
                             </ListItemDecorator>
@@ -47,7 +47,7 @@ const SideBar = () => {
                         </ListItemButton>
                     </ListItem>
                     <ListItem>
-                        <ListItemButton sx={{borderRadius: 5, transform: 'scale(1)'}}>
+                        <ListItemButton disabled sx={{borderRadius: 5, transform: 'scale(1)'}}>
                             <ListItemDecorator>
                                 <TuneRoundedIcon />
                             </ListItemDecorator>
@@ -60,7 +60,7 @@ const SideBar = () => {
                 <Divider />
                 <List sx={{pt: 2}}>
                     <ListItem>
-                        <ListItemButton sx={{borderRadius: 5, transform: 'scale(1)'}}>
+                        <ListItemButton disabled sx={{borderRadius: 5, transform: 'scale(1)'}}>
                             <ListItemDecorator>
                                 <SettingsRoundedIcon />
                             </ListItemDecorator>

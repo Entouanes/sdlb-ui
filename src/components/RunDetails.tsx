@@ -2,7 +2,7 @@ import React from "react"
 import { Autocomplete, Box, Typography } from "@mui/joy";
 import Attempt from "../utils/Attempt";
 import TabNav from "./TabNav";
-import RunOverviewTable from "../RunOverViewTable";
+import RunOverviewTable from "./RunOverViewTable"
 
 
 const RunDetails = () => {
@@ -24,8 +24,8 @@ const RunDetails = () => {
         <Box
             sx={{
                 flex: 1,
-                pl: 28,
-                pr: 5,
+                pl: 36,
+                pr: 13,
                 display: 'flex',
                 flexDirection: 'column',
                 height: '100%',

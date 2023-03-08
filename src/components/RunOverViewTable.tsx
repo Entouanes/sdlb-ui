@@ -1,6 +1,6 @@
 import { Box, List, ListDivider, ListItemDecorator, Typography } from "@mui/joy";
 import React from "react";
-import { AttemptType } from "./types";
+import { AttemptType } from "../types";
 import ListItem/* , { listItemClasses }  */from '@mui/joy/ListItem';
 import ListItemButton/* , { listItemButtonClasses } */ from '@mui/joy/ListItemButton';
 import KeyboardArrowDown from '@mui/icons-material/KeyboardArrowDown';

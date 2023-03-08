@@ -6,6 +6,7 @@ import TabPanel from '@mui/joy/TabPanel';
 import React from "react";
 import { Box } from "@mui/joy";
 import Attempt from "../utils/Attempt";
+import TableOfActions from "./TableOfActions";
 
 type TabNavProp = {
     attempt: Attempt;
@@ -14,7 +15,7 @@ type TabNavProp = {
 const TabNav : React.FC<TabNavProp> = ({attempt}) => {
     return ( 
         <>
-            <Tabs aria-label="Basic tabs" defaultValue={0}>
+            <Tabs aria-label="Basic tabs" defaultValue={0} sx={{borderRadius: 100}}>
                 <Box
                     sx={{
                         display: 'flex',
@@ -45,9 +46,9 @@ const TabNav : React.FC<TabNavProp> = ({attempt}) => {
                         }}
                     >
                         <Tab>Timeline</Tab>
-                        <Tab>Action details</Tab>
                         <Tab>Actions table</Tab>
-                        <Tab>Lineage</Tab>
+                        <Tab disabled>Action details</Tab>
+                        <Tab disabled>Lineage</Tab>
                     </TabList>
                 </Box>
                 
@@ -55,10 +56,10 @@ const TabNav : React.FC<TabNavProp> = ({attempt}) => {
                     <TimelineContainer attempt={attempt}/>
                 </TabPanel>
                 <TabPanel value={1} sx={{ py: 5 }}>
-                    <b>Action detail</b> tab panel
+                    <TableOfActions attempt={attempt}/>
                 </TabPanel>
                 <TabPanel value={2} sx={{ py: 5 }}>
-                    <b>Table view</b> tab panel
+                    <b>Action detail</b> tab panel
                 </TabPanel>
                 <TabPanel value={3} sx={{ py: 5 }}>
                     <b>Lineage</b> tab panel
