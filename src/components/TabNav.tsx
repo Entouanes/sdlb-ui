@@ -45,7 +45,8 @@ const TabNav : React.FC<TabNavProp> = ({attempt}) => {
                         }}
                     >
                         <Tab>Timeline</Tab>
-                        <Tab>Table view</Tab>
+                        <Tab>Action details</Tab>
+                        <Tab>Actions table</Tab>
                         <Tab>Lineage</Tab>
                     </TabList>
                 </Box>
@@ -54,9 +55,12 @@ const TabNav : React.FC<TabNavProp> = ({attempt}) => {
                     <TimelineContainer attempt={attempt}/>
                 </TabPanel>
                 <TabPanel value={1} sx={{ py: 5 }}>
-                    <b>Table view</b> tab panel
+                    <b>Action detail</b> tab panel
                 </TabPanel>
                 <TabPanel value={2} sx={{ py: 5 }}>
+                    <b>Table view</b> tab panel
+                </TabPanel>
+                <TabPanel value={3} sx={{ py: 5 }}>
                     <b>Lineage</b> tab panel
                 </TabPanel>
             </Tabs>

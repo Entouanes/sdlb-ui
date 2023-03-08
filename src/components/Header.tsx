@@ -4,10 +4,6 @@ import {
     List,
     ListItem, 
     Sheet,
-    Typography,
-    Divider,
-    Breadcrumbs,
-    Link
 } from '@mui/joy'
 
 
@@ -24,38 +20,18 @@ const Header = () => {
                 position: 'sticky',
                 zIndex: 10000,
                 px: 2,
+                py: 1
             }}
         >
                 
             <List sx={{
                 display: 'flex',
                 flexDirection: 'row',
-                justifyContent: 'left',
+                justifyContent: 'space-between',
                 gap: 2
             }}>
                 <ListItem>
                     <img src="/images/sdl_logo_old_plain_white.svg" height={28} />
-                </ListItem>
-                <Divider />
-                <ListItem>
-                    <Breadcrumbs aria-label="breadcrumbs">
-                        {['Jobs', 'vmdl', 'Run 9273'].map((item: string) => (
-                            <Link
-                            // `preventDefault` is for demo purposes
-                            // and is generally not needed in your app
-                                onClick={(event) => event.preventDefault()}
-                                key={item}
-                                underline="hover"
-                                variant="solid"
-                                color="primary"
-                                fontSize="inherit"
-                                href="/"
-                                >
-                                {item}
-                            </Link>
-                            ))}
-                        <Typography color='primary' variant='solid' fontSize="inherit">Attempt 1</Typography>
-                    </Breadcrumbs>
                 </ListItem>
             </List>
 

@@ -23,9 +23,9 @@ export const getTimeRangeString = (date: Date, timezone?: string): string => {
 
 export const getDateTimeLocalString = (date: Date, timezone?: string): string => {
   if (timezone) {
-    return spacetime(date, 'GMT+0').goto(`${timezone}`).unixFmt('yyyy-MM-ddTHH:mm');
+    return spacetime(date, 'GMT+0').goto(`${timezone}`).unixFmt('yyyy-MM-dd HH:mm:ss');
   }
-  return spacetime(date, 'GMT+0').unixFmt('yyyy-MM-ddTHH:mm');
+  return spacetime(date, 'GMT+0').unixFmt('yyyy-MM-dd HH:mm:ss');
 };
 
 // Return timepoint X days from now.

@@ -39,7 +39,7 @@ export default class Attempt {
                             flow_id: this.name,
                             run_number: this.stateFile.runId,
                             step_name: entry[0],
-                            task_id: 0,
+                            task_id: this.stateFile.attemptId,
                             user_name: "undefined",
                             status: entry[1].state == "SUCCEEDED" ? "completed" : (entry[1].state == "SKIPPED" ? "unknown" : "failed"),
                             ts_epoch: new Date(this.stateFile.runStartTime).getTime(), // not used
@@ -54,7 +54,6 @@ export default class Attempt {
                 },
             )
         })
-        console.log(taskRow)
         return taskRow;
     }
     /**

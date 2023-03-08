@@ -1,48 +1,26 @@
-import { Box, List, ListItemDecorator, Typography } from "@mui/joy";
+import { Box, List, ListDivider, ListItemDecorator, Typography } from "@mui/joy";
 import React from "react";
 import { AttemptType } from "./types";
-import ListItem, { listItemClasses } from '@mui/joy/ListItem';
-import ListItemButton, { listItemButtonClasses } from '@mui/joy/ListItemButton';
+import ListItem/* , { listItemClasses }  */from '@mui/joy/ListItem';
+import ListItemButton/* , { listItemButtonClasses } */ from '@mui/joy/ListItemButton';
 import KeyboardArrowDown from '@mui/icons-material/KeyboardArrowDown';
 
 const RunOverviewTable = (props: { attempt: AttemptType; }) => {
     const attempt : AttemptType = props.attempt;
-    console.log(attempt)
     const [open, setOpen] = React.useState(false);
-
+    
     return ( 
         <Box
             sx={{
                 width: '100%',
-                pl: '24px',
+                px: '24px',
+                border: '1px solid',
+                borderColor: 'lightgray',
+                borderRadius: 4,
+                my: '1rem',
             }}
             >
-            <List
-                size="sm"
-                sx={() => ({
-                '--List-insetStart': '32px',
-                '--ListItem-paddingY': 'px',
-                '--ListItem-paddingRight': '16px',
-                '--ListItem-paddingLeft': '10px',
-                '--ListItem-startActionWidth': '28px',
-                '--ListItem-startActionTranslateX': '50%',
-
-                [`& .${listItemButtonClasses.root}`]: {
-                    border: '1px plain',
-                    borderColor: 'divider',
-                    borderRadius: 4
-                },
-                [`& .${listItemButtonClasses.root}.${listItemButtonClasses.selected}`]: {
-                    borderColor: 'currentColor',
-                },
-                [`& .${listItemClasses.nested} > .${listItemButtonClasses.root}`]: {
-                    border: 'none',
-                },
-                '& [class*="startAction"]': {
-                    color: 'var(--joy-palette-text-tertiary)',
-                },
-                })}
-            >
+            <List size="sm">
                 <ListItem
                 nested
                 sx={{ my: 1 }}
@@ -59,29 +37,30 @@ const RunOverviewTable = (props: { attempt: AttemptType; }) => {
                     <Typography
                     level="inherit"
                     sx={{
-                        fontWeight: open ? 'bold' : undefined,
+                        /* fontWeight: open ? 'bold' : undefined, */
                         color: open ? 'text.primary' : 'inherit',
                     }}
                     >
-                        Details
+                        {open ? 'Hide details' : 'Show details'}
                     </Typography>
                 </ListItemButton>
                 </ListItem>
                 {open && (
-                    <List sx={{ '--ListItem-paddingY': '8px' }}>
-                    <ListItem>
-                        Overview
-                    </ListItem>
-                    <ListItem>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit
-                    </ListItem>
-                    <ListItem>
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorem nam non a alias consectetur tempore voluptas? Id cum assumenda, fuga officia, deleniti quam iusto modi illo dolorem reprehenderit vitae perspiciatis.
-                    </ListItem>
-                    <ListItem>
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto, doloremque molestiae. Quam sequi cumque ad impedit sit? Incidunt, at officia illo distinctio sequi labore fugit, quod minus dignissimos provident molestiae.
-                    </ListItem>
-                    </List>
+                    <>
+                        <ListDivider />
+                        <List>
+                            <ListItem>
+                                <Typography level='body2' sx={{px: '2rem'}}>
+                                    Run started on {new Date(attempt.stateFile.runStartTime).toLocaleDateString()} at {new Date(attempt.stateFile.runStartTime).toTimeString().split(' ')[0]}
+                                </Typography>
+                            </ListItem>
+                            <ListItem>
+                                <Typography level='body2' sx={{px: '2rem'}}>
+                                    Attempt {attempt.stateFile.attemptId} started on {new Date(attempt.stateFile.attemptStartTime).toLocaleDateString()} at {new Date(attempt.stateFile.attemptStartTime).toTimeString().split(' ')[0]}
+                                </Typography>
+                            </ListItem>
+                        </List>
+                    </>
                 )}
                 </ListItem>
                 
