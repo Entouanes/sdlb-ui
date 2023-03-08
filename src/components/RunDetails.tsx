@@ -6,6 +6,7 @@ import RunOverviewTable from "../RunOverViewTable";
 
 
 const RunDetails = () => {
+       
     const names : string[] = [
         'compute-distances.1.1',
         'compute-distances.2.1',
@@ -15,8 +16,10 @@ const RunDetails = () => {
         'vmdl.9619.1',
         'vmdl.9619.2'
     ]
-    const attempt = new Attempt(names[1]);
-  
+
+    const [value, setValue] = React.useState(names[0]);
+    const attempt = new Attempt(value);
+    console.log(value)
     return ( 
         <Box
             sx={{
@@ -35,17 +38,24 @@ const RunDetails = () => {
                         options={names}
                         sx={{ width: 200 }}
                         variant='outlined'
+                        value={value}
+                        onChange={(_event, newValue) => {
+                            setValue(newValue ? newValue : value);
+                        }}
                 />
             </Box>
-            <Box sx={{
-                my: '2rem',
-            }}>
-                <Typography level="h2">
-                    {attempt.name}: run {attempt.stateFile.runId}
-                </Typography> 
-            </Box>
-            <RunOverviewTable attempt={attempt}/>
-            <TabNav attempt={attempt}/>           
+            { <>
+                    <Box sx={{
+                        my: '2rem',
+                    }}>
+                        <Typography level="h2">
+                            {attempt.name}: run {attempt.stateFile.runId}
+                        </Typography> 
+                    </Box>
+                    <RunOverviewTable attempt={attempt}/>
+                    <TabNav attempt={attempt}/>
+                </>
+            }           
         </Box>
      );
 }

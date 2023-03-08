@@ -58,7 +58,7 @@ export type StateFile = {
         startTstmp: string,
         duration: string
     }    
-}
+} 
 
 
   export type Flow = MetaDataBaseObject;

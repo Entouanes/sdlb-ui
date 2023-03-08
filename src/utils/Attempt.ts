@@ -65,7 +65,6 @@ export default class Attempt {
         duration = duration.split('T')[1];
         
         if (duration.includes('H')) {
-          console.log(duration.split('H')[0])
           const hours: number = parseInt(duration.split('H')[0]);
           duration = duration.split('H')[1];
           const minutes: number = parseInt(duration.split('M')[0]);
