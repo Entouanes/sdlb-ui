@@ -9,22 +9,26 @@ import { getISOString } from "../utils/date";
 const RunOverviewTable = (props: { attempt: AttemptType; }) => {
     const attempt : AttemptType = props.attempt;
     const [open, setOpen] = React.useState(false);
+    const started_at = new Date(attempt.stateFile.runStartTime);
+    const first_task_at = new Date(attempt.run.ts_epoch+10);
+    const finished_at = new Date(attempt.run.finished_at?attempt.run.finished_at:attempt.run.ts_epoch+10);
     
+
+
     return ( 
         <Box
             sx={{
                 width: '100%',
-                px: '24px',
+                px: '4px',
                 border: '1px solid',
                 borderColor: 'lightgray',
                 borderRadius: 4,
-                my: '1rem',
+                mt: '2rem'
             }}
             >
             <List size="sm">
                 <ListItem
                 nested
-                sx={{ my: 1 }}
                 startAction={
                     <ListItemDecorator>
                         <KeyboardArrowDown
@@ -34,14 +38,20 @@ const RunOverviewTable = (props: { attempt: AttemptType; }) => {
                 }
                 >
                 <ListItem>
-                <ListItemButton variant="plain" onClick={() => setOpen(!open)}>
-                    <Typography
-                    level="inherit"
+                <ListItemButton 
+                    variant="plain" 
+                    onClick={() => setOpen(!open)}
                     sx={{
-                        color: open ? 'text.primary' : 'inherit',
+                        borderRadius: 4
                     }}
+                >
+                    <Typography
+                        level="inherit"
+                        sx={{
+                            color: open ? 'text.primary' : 'inherit',
+                        }}
                     >
-                        {open ? 'Hide details' : 'Show details'}
+                        {open ? 'Hide run details' : 'Show run details'}
                     </Typography>
                 </ListItemButton>
                 </ListItem>
@@ -51,17 +61,22 @@ const RunOverviewTable = (props: { attempt: AttemptType; }) => {
                         <List>
                             <ListItem>
                                 <Typography level='body2' sx={{px: '2rem'}}>
-                                    <b>Run start:</b> {getISOString(new Date(attempt.stateFile.runStartTime))}
+                                    <b>Run start:</b> {getISOString(started_at)}
+                                </Typography>
+                            </ListItem>
+                            <ListItem sx={{mx: '2rem'}}>
+                                <Typography level='body3' sx={{px: '1rem', mx: '1rem', borderLeft: '1px solid', borderColor: 'lightgray'}}>
+                                    <b>First task start:</b> {getISOString(first_task_at)}
                                 </Typography>
                             </ListItem>
                             <ListItem>
                                 <Typography level='body2' sx={{px: '2rem'}}>
-                                <b>Run finished at:</b> {getISOString(new Date(attempt.stateFile.attemptStartTime))}
+                                    <b>Run finished at:</b> {getISOString(finished_at)}
                                 </Typography>
                             </ListItem>
                             <ListItem>
                                 <Typography level='body2' sx={{px: '2rem'}}>
-                                <b>Total duration:</b> xx:yy
+                                    <b>Total elapsed time:</b> 
                                 </Typography>
                             </ListItem>
                             <ListItem>

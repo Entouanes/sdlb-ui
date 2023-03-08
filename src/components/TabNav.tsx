@@ -20,14 +20,14 @@ const TabNav : React.FC<TabNavProp> = ({attempt}) => {
                     sx={{
                         display: 'flex',
                         flexDirection: 'row',
-                        minWidth: '50%'
+                        mt: '1rem'
+                        //minWidth: '50%'
                     }}
                 >
                     <TabList
                         variant="plain"
                         sx={{
-                        '--List-padding': '0px',
-                        '--List-radius': '0px',
+                        '--List-radius': '4px',
                         '--ListItem-minHeight': '48px',
                         [`& .${tabClasses.root}`]: {
                             boxShadow: 'none',
@@ -52,16 +52,16 @@ const TabNav : React.FC<TabNavProp> = ({attempt}) => {
                     </TabList>
                 </Box>
                 
-                <TabPanel value={0} sx={{ py: 5 }}>
+                <TabPanel value={0} sx={{ py: '1rem' }}>
                     <TimelineContainer attempt={attempt}/>
                 </TabPanel>
-                <TabPanel value={1} sx={{ py: 5 }}>
+                <TabPanel value={1} sx={{ py: '1rem' }}>
                     <TableOfActions attempt={attempt}/>
                 </TabPanel>
-                <TabPanel value={2} sx={{ py: 5 }}>
+                <TabPanel value={2} sx={{ py: '1rem' }}>
                     <b>Action detail</b> tab panel
                 </TabPanel>
-                <TabPanel value={3} sx={{ py: 5 }}>
+                <TabPanel value={3} sx={{ py: '1rem' }}>
                     <b>Lineage</b> tab panel
                 </TabPanel>
             </Tabs>
