@@ -1,4 +1,4 @@
-import { List, ListItem, ListItemContent, ListItemButton, ListItemDecorator, Sheet, Box, Divider} from '@mui/joy';
+import { List, ListItem/* , ListItemContent */, ListItemButton, ListItemDecorator, Sheet, Box, Divider} from '@mui/joy';
 import React from 'react'
 import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
 import SpeedRoundedIcon from '@mui/icons-material/SpeedRounded';
@@ -27,7 +27,8 @@ const SideBar = () => {
             <Box>
                 <List
                     sx={{
-                        gap: 1
+                        gap: 1,
+                        display: 'flex',
                     }}
                 >
                     <ListItem>
@@ -35,7 +36,7 @@ const SideBar = () => {
                             <ListItemDecorator>
                                 <HomeRoundedIcon />
                             </ListItemDecorator>
-                            <ListItemContent>Home</ListItemContent>
+                            {/* <ListItemContent>Home</ListItemContent> */}
                         </ListItemButton>
                     </ListItem>
                     <ListItem>
@@ -43,7 +44,7 @@ const SideBar = () => {
                             <ListItemDecorator>
                                 <SpeedRoundedIcon />
                             </ListItemDecorator>
-                            <ListItemContent>Jobs</ListItemContent>
+                            {/* <ListItemContent>Jobs</ListItemContent> */}
                         </ListItemButton>
                     </ListItem>
                     <ListItem>
@@ -51,7 +52,7 @@ const SideBar = () => {
                             <ListItemDecorator>
                                 <TuneRoundedIcon />
                             </ListItemDecorator>
-                            <ListItemContent>Configuration</ListItemContent>
+                            {/* <ListItemContent>Configuration</ListItemContent> */}
                         </ListItemButton>
                     </ListItem>
                 </List>
@@ -64,7 +65,7 @@ const SideBar = () => {
                             <ListItemDecorator>
                                 <SettingsRoundedIcon />
                             </ListItemDecorator>
-                            <ListItemContent>Settings</ListItemContent>
+                            {/* <ListItemContent>Settings</ListItemContent> */}
                         </ListItemButton>
                     </ListItem>
                 </List>

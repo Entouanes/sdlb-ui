@@ -20,7 +20,6 @@ const Header = () => {
                 position: 'sticky',
                 zIndex: 10000,
                 px: 2,
-                py: 1
             }}
         >
                 
