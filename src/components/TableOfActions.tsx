@@ -1,4 +1,4 @@
-import { Chip, IconButton, List, ListItem, Sheet, Table, Typography } from "@mui/joy";
+import { Chip, IconButton, Sheet, Table, Typography } from "@mui/joy";
 import React from "react"
 import { AttemptType, Task } from "../types";
 import { getISOString } from "../utils/date";
@@ -55,15 +55,19 @@ function Row(props: { row: ReturnType<typeof createData>; initialOpen?: boolean 
             <tr>
             <td style={{ height: 0, padding: 0 }} colSpan={7}>
                 {open && (
-                    <Sheet sx={{ p: 1, pl: 6}}>
-                        <Typography level="h6" component="div">
+                    <Sheet 
+                        variant="soft"
+                        sx={{ p: 2, m: 2, borderRadius: 4}}
+                    >
+                        <Typography level="h6" sx={{pb:1}}>
                             Action details
                         </Typography>
-                        <List>
-                            <ListItem>Test</ListItem>
-                            <ListItem>Test</ListItem>
-                        </List>
-                        {/* {Object.entries(Object.values(row.actionDetails)[0]).map(arr => (<><Typography level='body3'> <b>{arr[0]}:</b> </Typography></>) )} */}
+                        <Typography level="body2">
+                            Some info
+                        </Typography>
+                        <Typography level="body2">
+                            What do you want displayed here?
+                        </Typography>
                     </Sheet>
                 )}
                 </td>
@@ -80,11 +84,23 @@ const TableOfActions = (props: { attempt: AttemptType; }) => {
 
     return (
         <Sheet sx={{
-            height: 450,
-            overflow: 'auto'
+            /* height: 450,
+            overflow: 'auto' */
         }}
         >
-            <Table size="md" color='neutral' stickyHeader sx={{"--Table-headerUnderlineThickness": "3px"}}>
+            <Table 
+                size="sm" 
+                color='neutral' 
+                stickyHeader
+                sx={{
+                    '& > thead > tr > th:nth-child(n + 3), & > tbody > tr > td:nth-child(n + 3)':
+                      { textAlign: 'right' },
+                    '& > tbody > tr:nth-child(odd) > td, & > tbody > tr:nth-child(odd) > th[scope="row"]':
+                      {
+                        borderBottom: 0,
+                      },
+                }}
+            >
                 <thead>
                     <tr>
                         <th  style={{width: 40}} aria-label="empty" />

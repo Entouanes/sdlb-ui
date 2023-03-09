@@ -2,7 +2,7 @@ import React from "react"
 import { Autocomplete, Box, Typography } from "@mui/joy";
 import Attempt from "../utils/Attempt";
 import TabNav from "./TabNav";
-import RunOverviewTable from "./RunOverViewTable"
+import RunOverviewTable from "./RunOverviewTable"
 
 
 const RunDetails = () => {

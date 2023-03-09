@@ -151,7 +151,7 @@ const StyledRow = styled.div`
 const StickyStyledRow = styled(StyledRow)`
   position: absolute;
   background: ${(p) => p.theme.color.bg.white};
-  top: 0;
+  top: 1;
   left: 0;
 `;
 
