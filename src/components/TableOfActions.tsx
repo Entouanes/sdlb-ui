@@ -24,9 +24,7 @@ function createData(taskRow: TaskRow) {
 function Row(props: { row: ReturnType<typeof createData>; initialOpen?: boolean }) {
     const [open, setOpen] = React.useState(props.initialOpen || false);
     const { row } = props;
-    if (open) {
-        console.log(Object.entries(Object.values(row.actionDetails)[0])[0])
-    }
+    
     return (
         <>
             <tr onClick={() => setOpen(!open)}>
@@ -83,11 +81,7 @@ const TableOfActions = (props: { attempt: AttemptType; }) => {
     const rows = props.attempt.rows;
 
     return (
-        <Sheet sx={{
-            /* height: 450,
-            overflow: 'auto' */
-        }}
-        >
+        <Sheet>
             <Table 
                 size="sm" 
                 color='neutral' 

@@ -25,7 +25,7 @@ const RunDetails = () => {
             sx={{
                 flex: 1,
                 pl: 36,
-                pr: 13,
+                pr: 28,
                 display: 'flex',
                 flexDirection: 'column',
                 height: '100%',

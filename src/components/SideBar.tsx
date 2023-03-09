@@ -1,4 +1,4 @@
-import { List, ListItem/* , ListItemContent */, ListItemButton, ListItemDecorator, Sheet, Box, Divider} from '@mui/joy';
+import { List, ListItem/* , ListItemContent */, ListItemButton, Sheet, Box, Divider} from '@mui/joy';
 import React from 'react'
 import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
 import SpeedRoundedIcon from '@mui/icons-material/SpeedRounded';
@@ -7,6 +7,11 @@ import TuneRoundedIcon from '@mui/icons-material/TuneRounded';
 
 
 const SideBar = () => {
+    /* const buttons = [
+        <HomeRoundedIcon/>,
+        <SpeedRoundedIcon/>,
+        <TuneRoundedIcon/>
+    ] */
     return ( 
         <Sheet
             color='neutral'
@@ -15,7 +20,6 @@ const SideBar = () => {
             sx={{
                 position: 'fixed',
                 display: 'flex',
-                flex: 1,
                 flexShrink: 0,
                 flexDirection: 'column',
                 justifyContent: 'space-between',
@@ -27,32 +31,58 @@ const SideBar = () => {
             <Box>
                 <List
                     sx={{
-                        gap: 1,
                         display: 'flex',
+                        justifyContent: 'right'
                     }}
-                >
+                >   
+                    {/* {buttons.map((component) => (
+                            <>
+                                <ListItem key={component.key}>
+                                    <ListItemButton 
+                                        sx={{
+                                            borderRadius: 4, 
+                                            transform: 'scale(1)',
+                                            justifyContent: 'center'
+                                        }}
+                                    >
+                                        {component.key}
+                                    </ListItemButton>
+                                </ListItem>
+                            </>
+                    ))} */}
                     <ListItem>
-                        <ListItemButton disabled sx={{borderRadius: 5, transform: 'scale(1)'}}>
-                            <ListItemDecorator>
-                                <HomeRoundedIcon />
-                            </ListItemDecorator>
-                            {/* <ListItemContent>Home</ListItemContent> */}
+                        <ListItemButton 
+                            disabled 
+                            sx={{
+                                borderRadius: 4, 
+                                transform: 'scale(1)',
+                                justifyContent: 'center'
+                            }}
+                        >
+                            <HomeRoundedIcon />
                         </ListItemButton>
                     </ListItem>
                     <ListItem>
-                    <ListItemButton sx={{borderRadius: 5, transform: 'scale(1)'}}>
-                            <ListItemDecorator>
-                                <SpeedRoundedIcon />
-                            </ListItemDecorator>
-                            {/* <ListItemContent>Jobs</ListItemContent> */}
+                        <ListItemButton 
+                            sx={{
+                                borderRadius: 4, 
+                                transform: 'scale(1)', 
+                                justifyContent: 'center'
+                            }}
+                        >
+                            <SpeedRoundedIcon />
                         </ListItemButton>
                     </ListItem>
                     <ListItem>
-                        <ListItemButton disabled sx={{borderRadius: 5, transform: 'scale(1)'}}>
-                            <ListItemDecorator>
-                                <TuneRoundedIcon />
-                            </ListItemDecorator>
-                            {/* <ListItemContent>Configuration</ListItemContent> */}
+                        <ListItemButton 
+                            disabled 
+                            sx={{
+                                borderRadius: 4, 
+                                transform: 'scale(1)',
+                                justifyContent: 'center'
+                            }}
+                        >
+                            <TuneRoundedIcon />
                         </ListItemButton>
                     </ListItem>
                 </List>
@@ -61,11 +91,15 @@ const SideBar = () => {
                 <Divider />
                 <List sx={{pt: 2}}>
                     <ListItem>
-                        <ListItemButton disabled sx={{borderRadius: 5, transform: 'scale(1)'}}>
-                            <ListItemDecorator>
-                                <SettingsRoundedIcon />
-                            </ListItemDecorator>
-                            {/* <ListItemContent>Settings</ListItemContent> */}
+                        <ListItemButton 
+                            disabled 
+                            sx={{
+                                borderRadius: 4, 
+                                transform: 'scale(1)',
+                                justifyContent: 'center'
+                            }}
+                        >
+                            <SettingsRoundedIcon />
                         </ListItemButton>
                     </ListItem>
                 </List>
