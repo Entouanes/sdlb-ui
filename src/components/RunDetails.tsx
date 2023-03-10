@@ -18,8 +18,9 @@ const RunDetails = () => {
     ]
 
     const [value, setValue] = React.useState(names[0]);
-    const attempt = new Attempt(value);
-    console.log(value)
+    const attempt = new Attempt(value, true);
+    const _x = new Attempt(value, true);
+    console.log(_x)
     return ( 
         <Box
             sx={{
