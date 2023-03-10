@@ -4,22 +4,44 @@ import { TaskRow } from "../components/Timeline/MyVirtualizedTimeline";
 export default class Attempt {
     stateFile: StateFile; 
     name: string; 
+    runId: number;
+    runStartTime: string;
     rows: TaskRow[];
     run: Run;
     
-    constructor(fileName: string) {
-        this.stateFile = require('/home/coma/sdlb-ui/src/assets/state/' + fileName);
-        this.name = this.stateFile.appConfig.applicationName;
-        this.rows = this.getTaskRow().sort(this.cmp);
-        this.run =  {
-            flow_id: this.name,
-            run_number: this.stateFile.runId,
-            status: 'completed',
-            user: 'undefined',
-            user_name: 'undefined',
-            ts_epoch: Math.min(...(this.rows.flatMap(row => row.data.map(t => t.started_at!).filter(x=>x)))) - 10, // start 10ms earlier
-            finished_at: Math.max(...(this.rows.flatMap(row => row.data.map(t => t.finished_at!).filter(x=>x)))),
-            system_tags: [],
+    constructor(fileName: string, random?: boolean) {
+        if (!random) {
+            this.stateFile = require('/home/coma/sdlb-ui/src/assets/state/' + fileName);
+            this.name = this.stateFile.appConfig.applicationName;
+            this.runId = this.stateFile.runId;
+            this.runStartTime = this.stateFile.runStartTime;
+            this.rows = this.getTaskRow().sort(this.cmp);
+            this.run =  {
+                flow_id: this.name,
+                run_number: this.stateFile.runId,
+                status: 'completed',
+                user: 'undefined',
+                user_name: 'undefined',
+                ts_epoch: Math.min(...(this.rows.flatMap(row => row.data.map(t => t.started_at!).filter(x=>x)))) - 10, // start 10ms earlier
+                finished_at: Math.max(...(this.rows.flatMap(row => row.data.map(t => t.finished_at!).filter(x=>x)))),
+                system_tags: [],
+            }
+        } else {
+            this.stateFile = require('/home/coma/sdlb-ui/src/assets/state/' + fileName);
+            this.name = this.stateFile.appConfig.applicationName;
+            this.runId = this.stateFile.runId;
+            this.runStartTime = this.stateFile.runStartTime;
+            this.rows = this.getTaskRow().sort(this.cmp);
+            this.run =  {
+                flow_id: this.name,
+                run_number: this.stateFile.runId,
+                status: 'completed',
+                user: 'undefined',
+                user_name: 'undefined',
+                ts_epoch: Math.min(...(this.rows.flatMap(row => row.data.map(t => t.started_at!).filter(x=>x)))) - 10, // start 10ms earlier
+                finished_at: Math.max(...(this.rows.flatMap(row => row.data.map(t => t.finished_at!).filter(x=>x)))),
+                system_tags: [],
+            }
         }
     }
 

@@ -47,8 +47,7 @@ const TabNav : React.FC<TabNavProp> = ({attempt}) => {
                     >
                         <Tab>Timeline</Tab>
                         <Tab>Actions table</Tab>
-                        <Tab disabled>Action details</Tab>
-                        <Tab disabled>Lineage</Tab>
+                        <Tab disabled>Action lineage</Tab>
                     </TabList>
                 </Box>
                 
@@ -59,9 +58,6 @@ const TabNav : React.FC<TabNavProp> = ({attempt}) => {
                     <TableOfActions attempt={attempt}/>
                 </TabPanel>
                 <TabPanel value={2} sx={{ py: '1rem' }}>
-                    <b>Action detail</b> tab panel
-                </TabPanel>
-                <TabPanel value={3} sx={{ py: '1rem' }}>
                     <b>Lineage</b> tab panel
                 </TabPanel>
             </Tabs>

@@ -9,7 +9,7 @@ import { getISOString } from "../utils/date";
 const RunOverviewTable = (props: { attempt: AttemptType; }) => {
     const attempt : AttemptType = props.attempt;
     const [open, setOpen] = React.useState(false);
-    const started_at = new Date(attempt.stateFile.runStartTime);
+    const started_at = new Date(attempt.runStartTime);
     const first_task_at = new Date(attempt.run.ts_epoch+10);
     const finished_at = new Date(attempt.run.finished_at?attempt.run.finished_at:attempt.run.ts_epoch+10);
     

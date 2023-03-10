@@ -49,10 +49,10 @@ const RunDetails = () => {
                         mt: '2rem',
                     }}>
                         <Typography level="h2">
-                            {attempt.name}: run {attempt.stateFile.runId}
+                            {attempt.name}: run {attempt.runId}
                         </Typography>
                         <Typography level="h4">
-                            {attempt.name}: run {attempt.stateFile.runId}
+                            {attempt.name}: run {attempt.runId}
                         </Typography>  
                     </Box>
                     <RunOverviewTable attempt={attempt}/>

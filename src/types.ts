@@ -10,7 +10,9 @@ export type AttemptConfig = {
 
 export type AttemptType = {
     stateFile: StateFile; 
-    name: string; 
+    name: string;
+    runId: number;
+    runStartTime: string; 
     rows: TaskRow[];
     run: Run;
 }
