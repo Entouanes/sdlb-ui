@@ -4,7 +4,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import Header from './components/Header'
 import SideBar from './components/SideBar'
 import React from 'react';
-import RunOverview from './components/RunOverview';
+import RunOverview from './components/RunPage/RunOverview';
 
 
 

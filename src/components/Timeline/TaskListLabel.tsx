@@ -7,7 +7,7 @@ import { formatDuration } from '../../utils/format';
 import { getPath } from '../../utils/routing';
 import { colorByStatus } from '../../utils/style';
 import { getTaskDuration, getTaskId } from '../../utils/task';
-import Icon from '../Icon';
+import Icon from '../../theme/Icon';
 
 //
 // Typedef

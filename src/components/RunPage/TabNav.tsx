@@ -4,9 +4,9 @@ import Tab, { tabClasses } from '@mui/joy/Tab';
 import TabPanel from '@mui/joy/TabPanel';
 import React from "react";
 import { Box } from "@mui/joy";
-import Attempt from "../utils/Attempt";
+import Attempt from "../../utils/Attempt";
 import TableOfActions from "./TableOfActions";
-import TimelineComponent from "./Timeline/TimelineComponent";
+import TimelineComponent from "../Timeline/TimelineComponent";
 
 type TabNavProp = {
     attempt: Attempt;
@@ -21,7 +21,6 @@ const TabNav : React.FC<TabNavProp> = ({attempt}) => {
                         display: 'flex',
                         flexDirection: 'row',
                         mt: '1rem'
-                        //minWidth: '50%'
                     }}
                 >
                     <TabList

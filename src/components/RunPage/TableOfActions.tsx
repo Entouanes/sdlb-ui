@@ -1,9 +1,9 @@
 import { Chip, IconButton, Sheet, Table, Typography } from "@mui/joy";
 import React from "react"
-import { AttemptType, Task } from "../types";
-import { getISOString } from "../utils/date";
-import { formatDuration } from "../utils/format";
-import { TaskRow } from "./Timeline/VirtualizedTimeline";
+import { AttemptType, Task } from "../../types";
+import { getISOString } from "../../utils/date";
+import { formatDuration } from "../../utils/format";
+import { TaskRow } from "../Timeline/VirtualizedTimeline";
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 

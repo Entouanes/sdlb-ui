@@ -1,0 +1,913 @@
+{
+  "appConfig" : {
+    "feedSel" : "^(vaccination|master).*",
+    "applicationName" : "vmdl",
+    "configuration" : [ "dbfs:/mnt/sdl/config/" ],
+    "parallelism" : 4,
+    "statePath" : "dbfs:/mnt/sdl/state/",
+    "streaming" : false
+  },
+  "runId" : 9619,
+  "attemptId" : 1,
+  "runStartTime" : "2023-02-17T11:08:42.524",
+  "attemptStartTime" : "2023-02-17T11:08:42.524",
+  "actionsState" : {
+    "stage_csv_delete_covid" : {
+      "executionId" : {
+        "type" : "SDLExecutionId",
+        "runId" : 9619,
+        "attemptId" : 1
+      },
+      "state" : "SKIPPED",
+      "startTstmp" : "2023-02-17T11:09:37.296",
+      "duration" : "PT0.001S",
+      "msg" : "NoDataToProcessWarning: (Action~stage_csv_delete_covid) No files to process found for DataObject~import_csv_delete_covid, partitionValues=",
+      "results" : [ {
+        "subFeed" : {
+          "type" : "InitSubFeed",
+          "dataObjectId" : "stage_csv_delete_covid",
+          "partitionValues" : [ ],
+          "isSkipped" : true
+        },
+        "mainMetrics" : { }
+      } ],
+      "dataObjectsState" : [ ]
+    },
+    "export_snapshot_medstat_ag_lage_gzip_monkeypox" : {
+      "executionId" : {
+        "type" : "SDLExecutionId",
+        "runId" : 9619,
+        "attemptId" : 1
+      },
+      "state" : "SKIPPED",
+      "startTstmp" : "2023-02-17T11:09:59.956",
+      "duration" : "PT0S",
+      "msg" : "TaskSkippedDontStopWarning: (Action~export_snapshot_medstat_ag_lage_gzip_monkeypox) execution skipped because input subFeeds are skipped: DataObject~btl_snapshot_monkeypox",
+      "results" : [ {
+        "subFeed" : {
+          "type" : "InitSubFeed",
+          "dataObjectId" : "export_snapshot_medstat_ag_lage_gzip_monkeypox",
+          "partitionValues" : [ ],
+          "isSkipped" : true
+        },
+        "mainMetrics" : { }
+      } ],
+      "dataObjectsState" : [ ]
+    },
+    "int_email_result_covid" : {
+      "executionId" : {
+        "type" : "SDLExecutionId",
+        "runId" : 9619,
+        "attemptId" : 1
+      },
+      "state" : "SUCCEEDED",
+      "startTstmp" : "2023-02-17T11:12:39.098",
+      "duration" : "PT7.611S",
+      "results" : [ {
+        "subFeed" : {
+          "type" : "SparkSubFeed",
+          "dataObjectId" : "int_email_upload_result_covid",
+          "partitionValues" : [ {
+            "elements" : {
+              "run_id" : "9619"
+            }
+          } ],
+          "isDAGStart" : false,
+          "isSkipped" : false,
+          "isDummy" : false
+        },
+        "mainMetrics" : {
+          "stage" : "save",
+          "num_tasks" : 1,
+          "records_written" : 1,
+          "stage_duration" : "PT1.331S",
+          "bytes_written" : 150
+        }
+      } ],
+      "dataObjectsState" : [ ]
+    },
+    "export_snapshot_medstat_ag_lage_gzip_covid" : {
+      "executionId" : {
+        "type" : "SDLExecutionId",
+        "runId" : 9619,
+        "attemptId" : 1
+      },
+      "state" : "SUCCEEDED",
+      "startTstmp" : "2023-02-17T11:14:04.882",
+      "duration" : "PT3M12.267S",
+      "results" : [ {
+        "subFeed" : {
+          "type" : "SparkSubFeed",
+          "dataObjectId" : "export_snapshot_medstat_ag_lage_gzip_covid",
+          "partitionValues" : [ ],
+          "isDAGStart" : false,
+          "isSkipped" : false,
+          "isDummy" : false
+        },
+        "mainMetrics" : {
+          "stage" : "save",
+          "num_tasks" : 1,
+          "records_written" : 16999230,
+          "stage_duration" : "PT2M55.875S",
+          "bytes_written" : 203819423
+        }
+      } ],
+      "dataObjectsState" : [ ]
+    },
+    "stage_json_monkeypox" : {
+      "executionId" : {
+        "type" : "SDLExecutionId",
+        "runId" : 9619,
+        "attemptId" : 1
+      },
+      "state" : "SKIPPED",
+      "startTstmp" : "2023-02-17T11:09:37.296",
+      "duration" : "PT0.001S",
+      "msg" : "NoDataToProcessWarning: (Action~stage_json_monkeypox) No files to process found for DataObject~import_json_monkeypox, partitionValues=",
+      "results" : [ {
+        "subFeed" : {
+          "type" : "InitSubFeed",
+          "dataObjectId" : "stage_json_monkeypox",
+          "partitionValues" : [ ],
+          "isSkipped" : true
+        },
+        "mainMetrics" : { }
+      } ],
+      "dataObjectsState" : [ ]
+    },
+    "export_snapshot_canton_monkeypox" : {
+      "executionId" : {
+        "type" : "SDLExecutionId",
+        "runId" : 9619,
+        "attemptId" : 1
+      },
+      "state" : "SKIPPED",
+      "startTstmp" : "2023-02-17T11:09:59.829",
+      "duration" : "PT0.003S",
+      "msg" : "TaskSkippedDontStopWarning: (Action~export_snapshot_canton_monkeypox) execution skipped because input subFeeds are skipped: DataObject~btl_snapshot_monkeypox",
+      "results" : [ {
+        "subFeed" : {
+          "type" : "InitSubFeed",
+          "dataObjectId" : "export_snapshot_canton_csv_monkeypox",
+          "partitionValues" : [ ],
+          "isSkipped" : true
+        },
+        "mainMetrics" : { }
+      }, {
+        "subFeed" : {
+          "type" : "InitSubFeed",
+          "dataObjectId" : "export_snapshot_canton_zip_monkeypox",
+          "partitionValues" : [ ],
+          "isSkipped" : true
+        },
+        "mainMetrics" : { }
+      } ],
+      "dataObjectsState" : [ ]
+    },
+    "export_snapshot_full_ag_lage_gzip_monkeypox" : {
+      "executionId" : {
+        "type" : "SDLExecutionId",
+        "runId" : 9619,
+        "attemptId" : 1
+      },
+      "state" : "SKIPPED",
+      "startTstmp" : "2023-02-17T11:09:59.829",
+      "duration" : "PT0.002S",
+      "msg" : "TaskSkippedDontStopWarning: (Action~export_snapshot_full_ag_lage_gzip_monkeypox) execution skipped because input subFeeds are skipped: DataObject~btl_snapshot_monkeypox",
+      "results" : [ {
+        "subFeed" : {
+          "type" : "InitSubFeed",
+          "dataObjectId" : "export_snapshot_full_ag_lage_gzip_monkeypox",
+          "partitionValues" : [ ],
+          "isSkipped" : true
+        },
+        "mainMetrics" : { }
+      } ],
+      "dataObjectsState" : [ ]
+    },
+    "btl_snapshot_covid" : {
+      "executionId" : {
+        "type" : "SDLExecutionId",
+        "runId" : 9619,
+        "attemptId" : 1
+      },
+      "state" : "SUCCEEDED",
+      "startTstmp" : "2023-02-17T11:12:55.536",
+      "duration" : "PT1M9.235S",
+      "results" : [ {
+        "subFeed" : {
+          "type" : "SparkSubFeed",
+          "dataObjectId" : "btl_snapshot_covid",
+          "partitionValues" : [ ],
+          "isDAGStart" : false,
+          "isSkipped" : false,
+          "isDummy" : false
+        },
+        "mainMetrics" : {
+          "stage" : "collect",
+          "count" : 16999230,
+          "num_tasks" : 1,
+          "no_data" : true,
+          "records_written" : 0,
+          "stage_duration" : "PT0.275S",
+          "bytes_written" : 0
+        }
+      } ],
+      "dataObjectsState" : [ ]
+    },
+    "int_historize_gtin" : {
+      "executionId" : {
+        "type" : "SDLExecutionId",
+        "runId" : 9619,
+        "attemptId" : 1
+      },
+      "state" : "SUCCEEDED",
+      "startTstmp" : "2023-02-17T11:09:37.929",
+      "duration" : "PT20.803S",
+      "results" : [ {
+        "subFeed" : {
+          "type" : "SparkSubFeed",
+          "dataObjectId" : "int_gtin_number",
+          "partitionValues" : [ ],
+          "isDAGStart" : false,
+          "isSkipped" : false,
+          "isDummy" : true
+        },
+        "mainMetrics" : {
+          "stage" : "first",
+          "count" : 45,
+          "num_tasks" : 1,
+          "no_data" : true,
+          "records_written" : 0,
+          "stage_duration" : "PT0.081S",
+          "bytes_written" : 0
+        }
+      } ],
+      "dataObjectsState" : [ ]
+    },
+    "int_validate_history_covid" : {
+      "executionId" : {
+        "type" : "SDLExecutionId",
+        "runId" : 9619,
+        "attemptId" : 1
+      },
+      "state" : "SUCCEEDED",
+      "startTstmp" : "2023-02-17T11:10:59.959",
+      "duration" : "PT1M39.01S",
+      "results" : [ {
+        "subFeed" : {
+          "type" : "SparkSubFeed",
+          "dataObjectId" : "int_data_history_validated_covid",
+          "partitionValues" : [ {
+            "elements" : {
+              "run_id" : "9619"
+            }
+          } ],
+          "isDAGStart" : false,
+          "isSkipped" : false,
+          "isDummy" : false
+        },
+        "mainMetrics" : {
+          "stage" : "first",
+          "count" : 1,
+          "num_tasks" : 1,
+          "no_data" : true,
+          "records_written" : 0,
+          "stage_duration" : "PT0.051S",
+          "bytes_written" : 0
+        }
+      }, {
+        "subFeed" : {
+          "type" : "SparkSubFeed",
+          "dataObjectId" : "int_invalid_covid",
+          "partitionValues" : [ {
+            "elements" : {
+              "run_id" : "9619"
+            }
+          } ],
+          "isDAGStart" : false,
+          "isSkipped" : false,
+          "isDummy" : false
+        },
+        "mainMetrics" : {
+          "stage" : "save",
+          "num_tasks" : 1,
+          "no_data" : true,
+          "records_written" : 0,
+          "stage_duration" : "PT0.04S",
+          "bytes_written" : 0
+        }
+      } ],
+      "dataObjectsState" : [ ]
+    },
+    "btl_historize_monkeypox" : {
+      "executionId" : {
+        "type" : "SDLExecutionId",
+        "runId" : 9619,
+        "attemptId" : 1
+      },
+      "state" : "SKIPPED",
+      "startTstmp" : "2023-02-17T11:09:59.540",
+      "duration" : "PT0.001S",
+      "msg" : "TaskSkippedDontStopWarning: (Action~btl_historize_monkeypox) execution skipped because input subFeeds are skipped: DataObject~int_data_history_validated_monkeypox",
+      "results" : [ {
+        "subFeed" : {
+          "type" : "InitSubFeed",
+          "dataObjectId" : "btl_data_monkeypox",
+          "partitionValues" : [ ],
+          "isSkipped" : true
+        },
+        "mainMetrics" : { }
+      } ],
+      "dataObjectsState" : [ ]
+    },
+    "int_validate_history_monkeypox" : {
+      "executionId" : {
+        "type" : "SDLExecutionId",
+        "runId" : 9619,
+        "attemptId" : 1
+      },
+      "state" : "SKIPPED",
+      "startTstmp" : "2023-02-17T11:09:59.444",
+      "duration" : "PT0S",
+      "msg" : "TaskSkippedDontStopWarning: (Action~int_validate_history_monkeypox) execution skipped because input subFeeds are skipped: DataObject~int_data_monkeypox, DataObject~int_invalid_tmp_monkeypox",
+      "results" : [ {
+        "subFeed" : {
+          "type" : "InitSubFeed",
+          "dataObjectId" : "int_data_history_validated_monkeypox",
+          "partitionValues" : [ ],
+          "isSkipped" : true
+        },
+        "mainMetrics" : { }
+      }, {
+        "subFeed" : {
+          "type" : "InitSubFeed",
+          "dataObjectId" : "int_invalid_monkeypox",
+          "partitionValues" : [ ],
+          "isSkipped" : true
+        },
+        "mainMetrics" : { }
+      } ],
+      "dataObjectsState" : [ ]
+    },
+    "export_snapshot_full_ag_lage_csv_covid" : {
+      "executionId" : {
+        "type" : "SDLExecutionId",
+        "runId" : 9619,
+        "attemptId" : 1
+      },
+      "state" : "SUCCEEDED",
+      "startTstmp" : "2023-02-17T11:14:04.882",
+      "duration" : "PT2M37.173S",
+      "results" : [ {
+        "subFeed" : {
+          "type" : "SparkSubFeed",
+          "dataObjectId" : "export_snapshot_full_ag_lage_csv_covid",
+          "partitionValues" : [ ],
+          "isDAGStart" : false,
+          "isSkipped" : false,
+          "isDummy" : false
+        },
+        "mainMetrics" : {
+          "stage" : "save",
+          "num_tasks" : 1,
+          "records_written" : 16999230,
+          "stage_duration" : "PT2M25.303S",
+          "bytes_written" : 4337336486
+        }
+      } ],
+      "dataObjectsState" : [ ]
+    },
+    "stage_user" : {
+      "executionId" : {
+        "type" : "SDLExecutionId",
+        "runId" : 9619,
+        "attemptId" : 1
+      },
+      "state" : "SUCCEEDED",
+      "startTstmp" : "2023-02-17T11:09:38.169",
+      "duration" : "PT0.681S",
+      "results" : [ {
+        "subFeed" : {
+          "type" : "FileSubFeed",
+          "dataObjectId" : "stage_user",
+          "partitionValues" : [ ],
+          "isDAGStart" : false,
+          "isSkipped" : false,
+          "fileRefMapping" : [ {
+            "src" : {
+              "fullPath" : "",
+              "fileName" : "result",
+              "partitionValues" : {
+                "elements" : { }
+              }
+            },
+            "tgt" : {
+              "fullPath" : "dbfs:/mnt/data/stage/user/result.json",
+              "fileName" : "result",
+              "partitionValues" : {
+                "elements" : { }
+              }
+            }
+          } ]
+        },
+        "mainMetrics" : {
+          "files_written" : 1
+        }
+      } ],
+      "dataObjectsState" : [ ]
+    },
+    "int_validate_covid" : {
+      "executionId" : {
+        "type" : "SDLExecutionId",
+        "runId" : 9619,
+        "attemptId" : 1
+      },
+      "state" : "SUCCEEDED",
+      "startTstmp" : "2023-02-17T11:10:23.855",
+      "duration" : "PT36.008S",
+      "results" : [ {
+        "subFeed" : {
+          "type" : "SparkSubFeed",
+          "dataObjectId" : "int_data_covid",
+          "partitionValues" : [ {
+            "elements" : {
+              "run_id" : "9619"
+            }
+          } ],
+          "isDAGStart" : false,
+          "isSkipped" : false,
+          "isDummy" : false
+        },
+        "mainMetrics" : {
+          "stage" : "first",
+          "count" : 1,
+          "num_tasks" : 1,
+          "no_data" : true,
+          "records_written" : 0,
+          "stage_duration" : "PT0.062S",
+          "bytes_written" : 0
+        }
+      }, {
+        "subFeed" : {
+          "type" : "SparkSubFeed",
+          "dataObjectId" : "int_invalid_tmp_covid",
+          "partitionValues" : [ {
+            "elements" : {
+              "run_id" : "9619"
+            }
+          } ],
+          "isDAGStart" : false,
+          "isSkipped" : false,
+          "isDummy" : false
+        },
+        "mainMetrics" : {
+          "stage" : "first",
+          "count" : 0,
+          "num_tasks" : 1,
+          "no_data" : true,
+          "records_written" : 0,
+          "stage_duration" : "PT0.061S",
+          "bytes_written" : 0
+        }
+      }, {
+        "subFeed" : {
+          "type" : "SparkSubFeed",
+          "dataObjectId" : "int_error_covid",
+          "partitionValues" : [ {
+            "elements" : {
+              "run_id" : "9619"
+            }
+          } ],
+          "isDAGStart" : false,
+          "isSkipped" : false,
+          "isDummy" : false
+        },
+        "mainMetrics" : {
+          "stage" : "save",
+          "num_tasks" : 1,
+          "no_data" : true,
+          "records_written" : 0,
+          "stage_duration" : "PT0.069S",
+          "bytes_written" : 0
+        }
+      } ],
+      "dataObjectsState" : [ ]
+    },
+    "stage_csv_monkeypox" : {
+      "executionId" : {
+        "type" : "SDLExecutionId",
+        "runId" : 9619,
+        "attemptId" : 1
+      },
+      "state" : "SKIPPED",
+      "startTstmp" : "2023-02-17T11:09:37.296",
+      "duration" : "PT0.001S",
+      "msg" : "NoDataToProcessWarning: (Action~stage_csv_monkeypox) No files to process found for DataObject~import_csv_monkeypox, partitionValues=",
+      "results" : [ {
+        "subFeed" : {
+          "type" : "InitSubFeed",
+          "dataObjectId" : "stage_csv_monkeypox",
+          "partitionValues" : [ ],
+          "isSkipped" : true
+        },
+        "mainMetrics" : { }
+      } ],
+      "dataObjectsState" : [ ]
+    },
+    "export_snapshot_canton_covid" : {
+      "executionId" : {
+        "type" : "SDLExecutionId",
+        "runId" : 9619,
+        "attemptId" : 1
+      },
+      "state" : "SUCCEEDED",
+      "startTstmp" : "2023-02-17T11:14:04.882",
+      "duration" : "PT8M34.311S",
+      "results" : [ {
+        "subFeed" : {
+          "type" : "SparkSubFeed",
+          "dataObjectId" : "export_snapshot_canton_csv_covid",
+          "partitionValues" : [ ],
+          "isDAGStart" : false,
+          "isSkipped" : false,
+          "isDummy" : false
+        },
+        "mainMetrics" : {
+          "stage" : "save",
+          "num_tasks" : 1,
+          "records_written" : 17836841,
+          "stage_duration" : "PT2M42.847S",
+          "bytes_written" : 4641243580
+        }
+      }, {
+        "subFeed" : {
+          "type" : "SparkSubFeed",
+          "dataObjectId" : "export_snapshot_canton_zip_covid",
+          "partitionValues" : [ ],
+          "isDAGStart" : false,
+          "isSkipped" : false,
+          "isDummy" : false
+        },
+        "mainMetrics" : {
+          "stage" : "save",
+          "num_tasks" : 1,
+          "records_written" : 17836841,
+          "stage_duration" : "PT5M7.487S",
+          "bytes_written" : 1441113631
+        }
+      } ],
+      "dataObjectsState" : [ ]
+    },
+    "stage_csv_covid" : {
+      "executionId" : {
+        "type" : "SDLExecutionId",
+        "runId" : 9619,
+        "attemptId" : 1
+      },
+      "state" : "SKIPPED",
+      "startTstmp" : "2023-02-17T11:09:37.789",
+      "duration" : "PT0S",
+      "msg" : "NoDataToProcessWarning: (Action~stage_csv_covid) No files to process found for DataObject~import_csv_covid, partitionValues=",
+      "results" : [ {
+        "subFeed" : {
+          "type" : "InitSubFeed",
+          "dataObjectId" : "stage_csv_covid",
+          "partitionValues" : [ ],
+          "isSkipped" : true
+        },
+        "mainMetrics" : { }
+      } ],
+      "dataObjectsState" : [ ]
+    },
+    "stage_json_delete_monkeypox" : {
+      "executionId" : {
+        "type" : "SDLExecutionId",
+        "runId" : 9619,
+        "attemptId" : 1
+      },
+      "state" : "SKIPPED",
+      "startTstmp" : "2023-02-17T11:09:37.296",
+      "duration" : "PT0.003S",
+      "msg" : "NoDataToProcessWarning: (Action~stage_json_delete_monkeypox) No files to process found for DataObject~import_json_delete_monkeypox, partitionValues=",
+      "results" : [ {
+        "subFeed" : {
+          "type" : "InitSubFeed",
+          "dataObjectId" : "stage_json_delete_monkeypox",
+          "partitionValues" : [ ],
+          "isSkipped" : true
+        },
+        "mainMetrics" : { }
+      } ],
+      "dataObjectsState" : [ ]
+    },
+    "export_snapshot_full_ag_lage_gzip_covid" : {
+      "executionId" : {
+        "type" : "SDLExecutionId",
+        "runId" : 9619,
+        "attemptId" : 1
+      },
+      "state" : "SUCCEEDED",
+      "startTstmp" : "2023-02-17T11:14:04.882",
+      "duration" : "PT4M42.669S",
+      "results" : [ {
+        "subFeed" : {
+          "type" : "SparkSubFeed",
+          "dataObjectId" : "export_snapshot_full_ag_lage_gzip_covid",
+          "partitionValues" : [ ],
+          "isDAGStart" : false,
+          "isSkipped" : false,
+          "isDummy" : false
+        },
+        "mainMetrics" : {
+          "stage" : "save",
+          "num_tasks" : 1,
+          "records_written" : 16999230,
+          "stage_duration" : "PT4M36.18S",
+          "bytes_written" : 1237485012
+        }
+      } ],
+      "dataObjectsState" : [ ]
+    },
+    "stage_json_covid" : {
+      "executionId" : {
+        "type" : "SDLExecutionId",
+        "runId" : 9619,
+        "attemptId" : 1
+      },
+      "state" : "SUCCEEDED",
+      "startTstmp" : "2023-02-17T11:09:37.632",
+      "duration" : "PT46.124S",
+      "results" : [ {
+        "subFeed" : {
+          "type" : "FileSubFeed",
+          "dataObjectId" : "stage_json_covid",
+          "partitionValues" : [ {
+            "elements" : {
+              "run_id" : "9619"
+            }
+          } ],
+          "isDAGStart" : false,
+          "isSkipped" : false,
+          "fileRefMapping" : [ {
+            "src" : {
+              "fullPath" : "dbfs:/mnt/data/import/uploadVaccinationData/reporting_unit_id_upload=RPUT0010/1676629116815.json",
+              "fileName" : "1676629116815.json",
+              "partitionValues" : {
+                "elements" : {
+                  "reporting_unit_id_upload" : "RPUT0010"
+                }
+              }
+            },
+            "tgt" : {
+              "fullPath" : "dbfs:/mnt/data/stage/uploadVaccinationDataJson/run_id=9619/reporting_unit_id_upload=RPUT0010/1676629116815.json",
+              "fileName" : "1676629116815.json",
+              "partitionValues" : {
+                "elements" : {
+                  "reporting_unit_id_upload" : "RPUT0010"
+                }
+              }
+            }
+          } ]
+        },
+        "mainMetrics" : {
+          "files_written" : 1
+        }
+      } ],
+      "dataObjectsState" : [ ]
+    },
+    "stage_json_delete_covid" : {
+      "executionId" : {
+        "type" : "SDLExecutionId",
+        "runId" : 9619,
+        "attemptId" : 1
+      },
+      "state" : "SKIPPED",
+      "startTstmp" : "2023-02-17T11:09:37.535",
+      "duration" : "PT0S",
+      "msg" : "NoDataToProcessWarning: (Action~stage_json_delete_covid) No files to process found for DataObject~import_json_delete_covid, partitionValues=",
+      "results" : [ {
+        "subFeed" : {
+          "type" : "InitSubFeed",
+          "dataObjectId" : "stage_json_delete_covid",
+          "partitionValues" : [ ],
+          "isSkipped" : true
+        },
+        "mainMetrics" : { }
+      } ],
+      "dataObjectsState" : [ ]
+    },
+    "int_email_result_monkeypox" : {
+      "executionId" : {
+        "type" : "SDLExecutionId",
+        "runId" : 9619,
+        "attemptId" : 1
+      },
+      "state" : "SKIPPED",
+      "startTstmp" : "2023-02-17T11:09:59.540",
+      "duration" : "PT0.002S",
+      "msg" : "TaskSkippedDontStopWarning: (Action~int_email_result_monkeypox) execution skipped because input subFeeds are skipped: DataObject~int_data_history_validated_monkeypox, DataObject~int_error_monkeypox, DataObject~int_user",
+      "results" : [ {
+        "subFeed" : {
+          "type" : "InitSubFeed",
+          "dataObjectId" : "int_email_upload_result_monkeypox",
+          "partitionValues" : [ ],
+          "isSkipped" : true
+        },
+        "mainMetrics" : { }
+      } ],
+      "dataObjectsState" : [ ]
+    },
+    "export_snapshot_full_ag_lage_csv_monkeypox" : {
+      "executionId" : {
+        "type" : "SDLExecutionId",
+        "runId" : 9619,
+        "attemptId" : 1
+      },
+      "state" : "SKIPPED",
+      "startTstmp" : "2023-02-17T11:09:59.830",
+      "duration" : "PT0.002S",
+      "msg" : "TaskSkippedDontStopWarning: (Action~export_snapshot_full_ag_lage_csv_monkeypox) execution skipped because input subFeeds are skipped: DataObject~btl_snapshot_monkeypox",
+      "results" : [ {
+        "subFeed" : {
+          "type" : "InitSubFeed",
+          "dataObjectId" : "export_snapshot_full_ag_lage_csv_monkeypox",
+          "partitionValues" : [ ],
+          "isSkipped" : true
+        },
+        "mainMetrics" : { }
+      } ],
+      "dataObjectsState" : [ ]
+    },
+    "stage_csv_delete_monkeypox" : {
+      "executionId" : {
+        "type" : "SDLExecutionId",
+        "runId" : 9619,
+        "attemptId" : 1
+      },
+      "state" : "SKIPPED",
+      "startTstmp" : "2023-02-17T11:09:37.422",
+      "duration" : "PT0S",
+      "msg" : "NoDataToProcessWarning: (Action~stage_csv_delete_monkeypox) No files to process found for DataObject~import_csv_delete_monkeypox, partitionValues=",
+      "results" : [ {
+        "subFeed" : {
+          "type" : "InitSubFeed",
+          "dataObjectId" : "stage_csv_delete_monkeypox",
+          "partitionValues" : [ ],
+          "isSkipped" : true
+        },
+        "mainMetrics" : { }
+      } ],
+      "dataObjectsState" : [ ]
+    },
+    "int_validate_monkeypox" : {
+      "executionId" : {
+        "type" : "SDLExecutionId",
+        "runId" : 9619,
+        "attemptId" : 1
+      },
+      "state" : "SKIPPED",
+      "startTstmp" : "2023-02-17T11:09:58.954",
+      "duration" : "PT0.124S",
+      "msg" : "TaskSkippedDontStopWarning: (Action~int_validate_monkeypox) execution skipped because of failed executionCondition  expression=\"!inputSubFeeds.stage_json_monkeypox.isSkipped or !inputSubFeeds.stage_json_delete_monkeypox.isSkipped or\r\n                      !inputSubFeeds.stage_csv_monkeypox.isSkipped or !inputSubFeeds.stage_csv_delete_monkeypox.isSkipped\" SubFeedsExpressionData(Map(stage_json_monkeypox -> SubFeedExpressionData(List(),true,true), stage_csv_monkeypox -> SubFeedExpressionData(List(),true,true), stage_json_delete_monkeypox -> SubFeedExpressionData(List(),true,true), stage_csv_delete_monkeypox -> SubFeedExpressionData(List(),true,true), int_gtin_number -> SubFeedExpressionData(Stream(),false,false)))",
+      "results" : [ {
+        "subFeed" : {
+          "type" : "InitSubFeed",
+          "dataObjectId" : "int_data_monkeypox",
+          "partitionValues" : [ ],
+          "isSkipped" : true
+        },
+        "mainMetrics" : { }
+      }, {
+        "subFeed" : {
+          "type" : "InitSubFeed",
+          "dataObjectId" : "int_invalid_tmp_monkeypox",
+          "partitionValues" : [ ],
+          "isSkipped" : true
+        },
+        "mainMetrics" : { }
+      }, {
+        "subFeed" : {
+          "type" : "InitSubFeed",
+          "dataObjectId" : "int_error_monkeypox",
+          "partitionValues" : [ ],
+          "isSkipped" : true
+        },
+        "mainMetrics" : { }
+      } ],
+      "dataObjectsState" : [ ]
+    },
+    "btl_snapshot_monkeypox" : {
+      "executionId" : {
+        "type" : "SDLExecutionId",
+        "runId" : 9619,
+        "attemptId" : 1
+      },
+      "state" : "SKIPPED",
+      "startTstmp" : "2023-02-17T11:09:59.633",
+      "duration" : "PT0.001S",
+      "msg" : "TaskSkippedDontStopWarning: (Action~btl_snapshot_monkeypox) execution skipped because input subFeeds are skipped: DataObject~btl_data_monkeypox, DataObject~int_canton_authorization",
+      "results" : [ {
+        "subFeed" : {
+          "type" : "InitSubFeed",
+          "dataObjectId" : "btl_snapshot_monkeypox",
+          "partitionValues" : [ ],
+          "isSkipped" : true
+        },
+        "mainMetrics" : { }
+      } ],
+      "dataObjectsState" : [ ]
+    },
+    "int_historize_canton_authorization" : {
+      "executionId" : {
+        "type" : "SDLExecutionId",
+        "runId" : 9619,
+        "attemptId" : 1
+      },
+      "state" : "SUCCEEDED",
+      "startTstmp" : "2023-02-17T11:09:38.063",
+      "duration" : "PT20.658S",
+      "results" : [ {
+        "subFeed" : {
+          "type" : "SparkSubFeed",
+          "dataObjectId" : "int_canton_authorization",
+          "partitionValues" : [ ],
+          "isDAGStart" : false,
+          "isSkipped" : false,
+          "isDummy" : true
+        },
+        "mainMetrics" : {
+          "stage" : "first",
+          "count" : 251,
+          "num_tasks" : 1,
+          "no_data" : true,
+          "records_written" : 0,
+          "stage_duration" : "PT0.222S",
+          "bytes_written" : 0
+        }
+      } ],
+      "dataObjectsState" : [ ]
+    },
+    "btl_historize_covid" : {
+      "executionId" : {
+        "type" : "SDLExecutionId",
+        "runId" : 9619,
+        "attemptId" : 1
+      },
+      "state" : "SUCCEEDED",
+      "startTstmp" : "2023-02-17T11:12:39.098",
+      "duration" : "PT16.336S",
+      "results" : [ {
+        "subFeed" : {
+          "type" : "SparkSubFeed",
+          "dataObjectId" : "btl_data_covid",
+          "partitionValues" : [ ],
+          "isDAGStart" : false,
+          "isSkipped" : false,
+          "isDummy" : true
+        },
+        "mainMetrics" : {
+          "stage" : "first",
+          "count" : 0,
+          "num_tasks" : 1,
+          "no_data" : true,
+          "records_written" : 0,
+          "stage_duration" : "PT0.053S",
+          "bytes_written" : 0
+        }
+      } ],
+      "dataObjectsState" : [ ]
+    },
+    "int_historize_user" : {
+      "executionId" : {
+        "type" : "SDLExecutionId",
+        "runId" : 9619,
+        "attemptId" : 1
+      },
+      "state" : "SUCCEEDED",
+      "startTstmp" : "2023-02-17T11:09:38.970",
+      "duration" : "PT19.76S",
+      "results" : [ {
+        "subFeed" : {
+          "type" : "SparkSubFeed",
+          "dataObjectId" : "int_user",
+          "partitionValues" : [ ],
+          "isDAGStart" : false,
+          "isSkipped" : false,
+          "isDummy" : true
+        },
+        "mainMetrics" : {
+          "stage" : "first",
+          "count" : 9797,
+          "num_tasks" : 1,
+          "no_data" : true,
+          "records_written" : 0,
+          "stage_duration" : "PT0.182S",
+          "bytes_written" : 0
+        }
+      } ],
+      "dataObjectsState" : [ ]
+    }
+  },
+  "isFinal" : true
+}

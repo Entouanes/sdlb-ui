@@ -7,11 +7,11 @@ import TuneRoundedIcon from '@mui/icons-material/TuneRounded';
 
 
 const SideBar = () => {
-    /* const buttons = [
-        <HomeRoundedIcon/>,
-        <SpeedRoundedIcon/>,
-        <TuneRoundedIcon/>
-    ] */
+    const buttons = [
+        {icon: <HomeRoundedIcon/>},
+        {icon: <SpeedRoundedIcon/>},
+        {icon: <TuneRoundedIcon/>}
+    ]
     return ( 
         <Sheet
             color='neutral'
@@ -25,7 +25,7 @@ const SideBar = () => {
                 justifyContent: 'space-between',
                 height: '100%',
                 p: 1,
-                pb: 11
+                pb: 7
             }}
         >
             <Box>
@@ -35,61 +35,26 @@ const SideBar = () => {
                         justifyContent: 'right'
                     }}
                 >   
-                    {/* {buttons.map((component) => (
-                            <>
-                                <ListItem key={component.key}>
-                                    <ListItemButton 
-                                        sx={{
-                                            borderRadius: 4, 
-                                            transform: 'scale(1)',
-                                            justifyContent: 'center'
-                                        }}
-                                    >
-                                        {component.key}
-                                    </ListItemButton>
-                                </ListItem>
-                            </>
-                    ))} */}
-                    <ListItem>
-                        <ListItemButton 
-                            disabled 
-                            sx={{
-                                borderRadius: 4, 
-                                transform: 'scale(1)',
-                                justifyContent: 'center'
-                            }}
-                        >
-                            <HomeRoundedIcon />
-                        </ListItemButton>
-                    </ListItem>
-                    <ListItem>
-                        <ListItemButton 
-                            sx={{
-                                borderRadius: 4, 
-                                transform: 'scale(1)', 
-                                justifyContent: 'center'
-                            }}
-                        >
-                            <SpeedRoundedIcon />
-                        </ListItemButton>
-                    </ListItem>
-                    <ListItem>
-                        <ListItemButton 
-                            disabled 
-                            sx={{
-                                borderRadius: 4, 
-                                transform: 'scale(1)',
-                                justifyContent: 'center'
-                            }}
-                        >
-                            <TuneRoundedIcon />
-                        </ListItemButton>
-                    </ListItem>
+                    {buttons.map((component) => (
+                        <>    
+                            <ListItem>
+                                <ListItemButton 
+                                    sx={{
+                                        borderRadius: 4, 
+                                        transform: 'scale(1)',
+                                        justifyContent: 'center'
+                                    }}
+                                >
+                                    {component.icon}
+                                </ListItemButton>
+                            </ListItem>
+                        </>
+                    ))}
                 </List>
             </Box>
             <Box>
                 <Divider />
-                <List sx={{pt: 2}}>
+                <List>
                     <ListItem>
                         <ListItemButton 
                             disabled 

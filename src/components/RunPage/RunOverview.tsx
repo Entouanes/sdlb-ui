@@ -1,6 +1,6 @@
 import React from "react"
 import { Autocomplete, Box, Button, Typography } from "@mui/joy";
-import Attempt from "../utils/Attempt";
+import Attempt from "../../utils/Attempt";
 import TabNav from "./TabNav";
 import RunDetails from "./RunDetails"
 

@@ -13,7 +13,7 @@ export default class Attempt {
     run: Run;
     
     constructor(fileName: string, random?: boolean) {          
-        this.stateFile = random? this.randomStateFile() : require('/home/coma/sdlb-ui/src/assets/state/' + fileName);
+        this.stateFile = random? this.randomStateFile() : require('/home/coma/sdlb-ui/src/data/state/' + fileName);
         this.name = this.stateFile.appConfig.applicationName;
         this.runId = this.stateFile.runId;
         this.runStartTime = this.stateFile.runStartTime;
