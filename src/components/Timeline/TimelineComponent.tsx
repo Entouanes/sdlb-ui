@@ -1,5 +1,5 @@
 import React from 'react';
-import MyVirtualizedTimeline from './MyVirtualizedTimeline';
+import VirtualizedTimeline from './VirtualizedTimeline';
 import { ThemeProvider } from 'styled-components';
 import GlobalStyle from '../../GlobalStyle';
 import '../../theme/font/roboto.css'
@@ -13,7 +13,7 @@ const TimelineComponent: React.FC<TimelineComponentProps> = ({attempt}) => {
     return (
         <ThemeProvider theme={theme}>
         <GlobalStyle />
-            <MyVirtualizedTimeline run={attempt.run} rows={attempt.rows} mode="startTime" />
+            <VirtualizedTimeline run={attempt.run} rows={attempt.rows} mode="startTime" />
         </ThemeProvider>
     );
 };

@@ -1,6 +1,6 @@
 import React, { createRef, useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { Row, StepRow } from '../MyVirtualizedTimeline';
+import { Row, StepRow } from '../VirtualizedTimeline';
 import { getLongestRowDuration, getTaskLineStatus, startAndEndpointsOfRows } from '../../../utils/row';
 import { TaskStatus } from '../../../types';
 import MinimapRow from './MinimapRow';

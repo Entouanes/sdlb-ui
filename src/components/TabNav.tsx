@@ -1,4 +1,3 @@
-import TimelineContainer from "./TimelineContainer";
 import Tabs from '@mui/joy/Tabs';
 import TabList from '@mui/joy/TabList';
 import Tab, { tabClasses } from '@mui/joy/Tab';
@@ -7,6 +6,7 @@ import React from "react";
 import { Box } from "@mui/joy";
 import Attempt from "../utils/Attempt";
 import TableOfActions from "./TableOfActions";
+import TimelineComponent from "./Timeline/TimelineComponent";
 
 type TabNavProp = {
     attempt: Attempt;
@@ -52,7 +52,7 @@ const TabNav : React.FC<TabNavProp> = ({attempt}) => {
                 </Box>
                 
                 <TabPanel value={0} sx={{ py: '1rem' }}>
-                    <TimelineContainer attempt={attempt}/>
+                    <TimelineComponent attempt={attempt} />
                 </TabPanel>
                 <TabPanel value={1} sx={{ py: '1rem' }}>
                     <TableOfActions attempt={attempt}/>

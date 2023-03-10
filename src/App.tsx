@@ -4,7 +4,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import Header from './components/Header'
 import SideBar from './components/SideBar'
 import React from 'react';
-import RunDetails from './components/RunDetails';
+import RunOverview from './components/RunOverview';
 
 
 
@@ -16,7 +16,7 @@ export default function App() {
       <Header />
       <SideBar />
       <Router>
-        <RunDetails/>
+        <RunOverview/>
       </Router>
     </CssVarsProvider>
   );

@@ -1,5 +1,5 @@
 import { Run, StateFile } from "../types"
-import { TaskRow } from "../components/Timeline/MyVirtualizedTimeline";
+import { TaskRow } from "../components/Timeline/VirtualizedTimeline";
 import { uniqueNamesGenerator, adjectives, colors, animals, names } from 'unique-names-generator';
 
 

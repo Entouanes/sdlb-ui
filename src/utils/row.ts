@@ -1,4 +1,4 @@
-import { Row } from '../components/Timeline/MyVirtualizedTimeline';
+import { Row } from '../components/Timeline/VirtualizedTimeline';
 import { Task, TaskStatus } from '../types';
 
 const takeSmallest = (a: Row): number | null =>

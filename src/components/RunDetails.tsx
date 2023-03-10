@@ -1,77 +1,97 @@
-import React from "react"
-import { Autocomplete, Box, Button, Typography } from "@mui/joy";
-import Attempt from "../utils/Attempt";
-import TabNav from "./TabNav";
-import RunOverviewTable from "./RunOverviewTable"
+import { Box, List, ListDivider, ListItemDecorator, Typography } from "@mui/joy";
+import React from "react";
+import { AttemptType } from "../types";
+import ListItem/* , { listItemClasses }  */from '@mui/joy/ListItem';
+import ListItemButton/* , { listItemButtonClasses } */ from '@mui/joy/ListItemButton';
+import KeyboardArrowDown from '@mui/icons-material/KeyboardArrowDown';
+import { getISOString } from "../utils/date";
 
+const RunDetails = (props: { attempt: AttemptType; }) => {
+    const attempt : AttemptType = props.attempt;
+    const [open, setOpen] = React.useState(false);
+    const started_at = new Date(attempt.runStartTime);
+    const first_task_at = new Date(attempt.run.ts_epoch+10);
+    const finished_at = new Date(attempt.run.finished_at?attempt.run.finished_at:attempt.run.ts_epoch+10);
+    
 
-const RunDetails = () => {
-       
-    const names : string[] = [
-        'compute-distances.1.1',
-        'compute-distances.2.1',
-        'download.1.1',
-        'tmc_cidra.549.1',
-        'tmc_cidra.550.1',
-        'vmdl.9619.1',
-        'vmdl.9619.2'
-    ]
-
-    const [value, setValue] = React.useState(names[0]);
-    const [attempt, setAttempt] = React.useState(new Attempt(value));
 
     return ( 
         <Box
             sx={{
-                flex: 1,
-                pl: 36,
-                pr: 28,
-                display: 'flex',
-                flexDirection: 'column',
-                height: '100%',
-                overflow: 'hidden',
+                width: '100%',
+                px: '4px',
+                border: '1px solid',
+                borderColor: 'lightgray',
+                borderRadius: 4,
+                mt: '2rem'
             }}
-        >
-            <Box sx={{ display: 'flex', flexDirection: 'row', gap: '1rem'}}>
-
-            
-            <Box sx={{pt: '2rem'}}>
-                <Autocomplete
-                        placeholder="Select a run"
-                        options={names}
-                        sx={{ width: 200 }}
-                        variant='outlined'
-                        value={value}
-                        onChange={(_event, newValue) => {
-                            setValue(newValue ? newValue : value);
-                            setAttempt(new Attempt(newValue ? newValue : value));
+            >
+            <List size="sm">
+                <ListItem
+                nested
+                startAction={
+                    <ListItemDecorator>
+                        <KeyboardArrowDown
+                            sx={{ transform: open ? 'initial' : 'rotate(-90deg)' }}
+                        />
+                    </ListItemDecorator>
+                }
+                >
+                <ListItem>
+                <ListItemButton 
+                    variant="plain" 
+                    onClick={() => setOpen(!open)}
+                    sx={{
+                        borderRadius: 4
+                    }}
+                >
+                    <Typography
+                        level="inherit"
+                        sx={{
+                            color: open ? 'text.primary' : 'inherit',
                         }}
-                />
+                    >
+                        {open ? 'Hide run details' : 'Show run details'}
+                    </Typography>
+                </ListItemButton>
+                </ListItem>
+                {open && (
+                    <>
+                        <ListDivider />
+                        <List>
+                            <ListItem>
+                                <Typography level='body2' sx={{px: '2rem'}}>
+                                    <b>Run start:</b> {getISOString(started_at)}
+                                </Typography>
+                            </ListItem>
+                            <ListItem sx={{mx: '2rem'}}>
+                                <Typography level='body3' sx={{px: '1rem', mx: '1rem', borderLeft: '1px solid', borderColor: 'lightgray'}}>
+                                    <b>First task start:</b> {getISOString(first_task_at)}
+                                </Typography>
+                            </ListItem>
+                            <ListItem>
+                                <Typography level='body2' sx={{px: '2rem'}}>
+                                    <b>Run finished at:</b> {getISOString(finished_at)}
+                                </Typography>
+                            </ListItem>
+                            <ListItem>
+                                <Typography level='body2' sx={{px: '2rem'}}>
+                                    <b>Total elapsed time:</b> 
+                                </Typography>
+                            </ListItem>
+                            <ListItem>
+                                <Typography level='body2' sx={{px: '2rem'}}>
+                                <b>Number of actions:</b> {attempt.rows.length}
+                                </Typography>
+                            </ListItem>
+                        </List>
+                    </>
+                )}
+                </ListItem>
                 
-            </Box>
-            <Box sx={{pt: '2rem'}}>
-                <Button variant="soft" onClick={() => setAttempt(new Attempt(value, true))}>
-                    Generate random run
-                </Button>
-            </Box>
-            </Box>
-            { <>
-                    <Box sx={{
-                        mt: '2rem',
-                    }}>
-                        <Typography level="h2">
-                            {attempt.name}: run {attempt.runId}
-                        </Typography>
-                        <Typography level="h4">
-                            {attempt.name}: run {attempt.runId}
-                        </Typography>  
-                    </Box>
-                    <RunOverviewTable attempt={attempt}/>
-                    <TabNav attempt={attempt}/>
-                </>
-            }           
+            </List>
         </Box>
-     );
+    );
 }
  
 export default RunDetails;

@@ -8,7 +8,7 @@ import TimelineFooter from './Footer';
 import { TFunction } from 'i18next';
 import { RenderedRows } from 'react-virtualized/dist/es/List';
 import { toRelativeSize } from '../../utils/style';
-import { Row } from './MyVirtualizedTimeline';
+import { Row } from './VirtualizedTimeline';
 import { TasksSortBy } from './useTaskListSettings';
 import { AsyncStatus } from '../../types';
 

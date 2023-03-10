@@ -25,7 +25,7 @@ type MyTimelineProps = {
 // Component
 //
 
-const MyVirtualizedTimeline: React.FC<MyTimelineProps> = ({
+const VirtualizedTimeline: React.FC<MyTimelineProps> = ({
   run,
   rows,
   mode
@@ -89,8 +89,7 @@ const MyVirtualizedTimeline: React.FC<MyTimelineProps> = ({
   );
 
   return (
-    <MyVirtualizedTimelineContainer>
-      <MyVirtualizedTimelineSubContainer>
+    <VirtualizedTimelineContainer>
         {rows.length > 0 && (
           <Timeline
             rows={rows}
@@ -106,8 +105,7 @@ const MyVirtualizedTimeline: React.FC<MyTimelineProps> = ({
             onMove={handleMove}
           />
         )}
-      </MyVirtualizedTimelineSubContainer>
-    </MyVirtualizedTimelineContainer>
+    </VirtualizedTimelineContainer>
   );
 };
 
@@ -115,19 +113,19 @@ const MyVirtualizedTimeline: React.FC<MyTimelineProps> = ({
 // Style
 //
 
-const MyVirtualizedTimelineContainer = styled.div`
+const VirtualizedTimelineContainer = styled.div`
   display: flex;
   height: 100%;
   width: 100%;
   user-select: none;
 `;
 
-const MyVirtualizedTimelineSubContainer = styled.div`
+/* const MyVirtualizedTimelineSubContainer = styled.div`
   position: relative;
   width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
-`;
+`; */
 
-export default MyVirtualizedTimeline;
+export default VirtualizedTimeline;

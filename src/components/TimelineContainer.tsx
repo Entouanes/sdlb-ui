@@ -1,7 +1,7 @@
 import { Box } from "@mui/joy";
 import React from "react";
 import Attempt from "../utils/Attempt";
-import TimelineTest from "./Timeline";
+import TimelineComponent from "./Timeline/TimelineComponent";
 
 export type TimelineContainerProps = {
     attempt: Attempt;
@@ -14,7 +14,7 @@ const TimelineContainer: React.FC<TimelineContainerProps> = ({attempt}) => {
                 display: "flex",
                 flexDirection: "column",
             }}>
-                <TimelineTest attempt={attempt} />
+                <TimelineComponent attempt={attempt} />
             </Box>        
         </>
      );

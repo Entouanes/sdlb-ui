@@ -1,4 +1,4 @@
-import { TaskRow } from "./components/Timeline/MyVirtualizedTimeline";
+import { TaskRow } from "./components/Timeline/VirtualizedTimeline";
 
 export type AttemptConfig = {
     name: string;

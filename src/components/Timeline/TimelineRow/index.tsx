@@ -1,6 +1,6 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import { Row } from '../MyVirtualizedTimeline';
+import { Row } from '../VirtualizedTimeline';
 import { Link } from 'react-router-dom';
 import { getPathFor } from '../../../utils/routing';
 import { TFunction } from 'i18next';

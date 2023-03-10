@@ -1,7 +1,7 @@
 import { TimelineMetrics } from '../components/Timeline/Timeline';
 import { RowDataModel, StepRowData } from '../components/Timeline/useTaskData';
 import { TaskSettingsState } from '../components/Timeline/useTaskListSettings';
-import { Row } from '../components/Timeline/MyVirtualizedTimeline';
+import { Row } from '../components/Timeline/VirtualizedTimeline';
 import { Task, Step, Run, TaskStatus } from '../types';
 
 //
