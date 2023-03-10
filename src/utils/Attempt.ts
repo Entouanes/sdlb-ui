@@ -73,11 +73,11 @@ export default class Attempt {
     getRandomTaskRow() {
         
         const taskRow : TaskRow[] = [];
-        const actionsStateEntries = Array(Math.round(Math.random()*40)).fill(null).map(() => uniqueNamesGenerator({dictionaries: [adjectives, colors, animals]}));
+        const actionsStateEntries = Array(Math.round(Math.random()*60)).fill(null).map(() => uniqueNamesGenerator({dictionaries: [adjectives, colors, animals]}));
         actionsStateEntries.forEach((entry: any) => {
             const state :number = Math.ceil(Math.random()*100);
             const duration = Math.round(Math.random()*10000)
-            const started_at = new Date(this.runStartTime).getTime() + Math.round(Math.random()*10000) + 100;
+            const started_at = new Date(this.runStartTime).getTime() + Math.round(Math.random()*50000) + 100;
             taskRow.push(
                 {
                     type: "task",

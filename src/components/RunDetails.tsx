@@ -1,5 +1,5 @@
 import React from "react"
-import { Autocomplete, Box, Typography } from "@mui/joy";
+import { Autocomplete, Box, Button, Typography } from "@mui/joy";
 import Attempt from "../utils/Attempt";
 import TabNav from "./TabNav";
 import RunOverviewTable from "./RunOverviewTable"
@@ -18,9 +18,8 @@ const RunDetails = () => {
     ]
 
     const [value, setValue] = React.useState(names[0]);
-    const attempt = new Attempt(value, true);
-    const _x = new Attempt(value, true);
-    console.log(_x)
+    const [attempt, setAttempt] = React.useState(new Attempt(value));
+
     return ( 
         <Box
             sx={{
@@ -33,6 +32,9 @@ const RunDetails = () => {
                 overflow: 'hidden',
             }}
         >
+            <Box sx={{ display: 'flex', flexDirection: 'row', gap: '1rem'}}>
+
+            
             <Box sx={{pt: '2rem'}}>
                 <Autocomplete
                         placeholder="Select a run"
@@ -42,8 +44,16 @@ const RunDetails = () => {
                         value={value}
                         onChange={(_event, newValue) => {
                             setValue(newValue ? newValue : value);
+                            setAttempt(new Attempt(newValue ? newValue : value));
                         }}
                 />
+                
+            </Box>
+            <Box sx={{pt: '2rem'}}>
+                <Button variant="soft" onClick={() => setAttempt(new Attempt(value, true))}>
+                    Generate random run
+                </Button>
+            </Box>
             </Box>
             { <>
                     <Box sx={{
