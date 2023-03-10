@@ -71,7 +71,6 @@ export default class Attempt {
      */
 
     getRandomTaskRow() {
-        
         const taskRow : TaskRow[] = [];
         const actionsStateEntries = Array(Math.round(Math.random()*60)).fill(null).map(() => uniqueNamesGenerator({dictionaries: [adjectives, colors, animals]}));
         actionsStateEntries.forEach((entry: any) => {
