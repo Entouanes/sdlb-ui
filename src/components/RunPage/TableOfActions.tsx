@@ -1,11 +1,12 @@
-import { Chip, IconButton, Sheet, Table, Typography } from "@mui/joy";
+import { Chip,/*  IconButton, */ Sheet, Table,/* , Typography */ 
+Typography} from "@mui/joy";
 import React from "react"
 import { AttemptType, Task } from "../../types";
 import { getISOString } from "../../utils/date";
 import { formatDuration } from "../../utils/format";
 import { TaskRow } from "../Timeline/VirtualizedTimeline";
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
+/* import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight'; */
 
 function createData(taskRow: TaskRow) {
     const curr: Task = taskRow.data[0];
@@ -21,99 +22,84 @@ function createData(taskRow: TaskRow) {
     })
 }
 
-function Row(props: { row: ReturnType<typeof createData>; initialOpen?: boolean }) {
-    const [open, setOpen] = React.useState(props.initialOpen || false);
-    const { row } = props;
+function Row(props: { row: ReturnType<typeof createData>; handler: () => void; initialOpen?: boolean }) {
+    
+    const { row, handler } = props;
     
     return (
         <>
-            <tr onClick={() => setOpen(!open)}>
-                <td>
-                    <IconButton
-                        aria-label="expand row"
-                        variant="plain"
-                        color="neutral"
-                        size="sm"
-                        onClick={() => setOpen(!open)}
-                    >
-                        {open ? <KeyboardArrowDownIcon /> : <KeyboardArrowRightIcon />}
-                    </IconButton>
-                </td>
-                <th scope="row">{row.actionName}</th>
+            <tr onClick={handler}>
+                <td scope="row"><Typography noWrap={true}>{row.actionName}</Typography></td>
                 <td>
                     <Chip variant="soft" size="sm" color={row.status === 'succeeded' ? 'success' : (row.status === 'skipped' ? 'neutral' : 'danger')}>
-                        {row.status}
+                        <Typography noWrap={true}>{row.status}</Typography>
                     </Chip>
                 </td>
-                <td>{row.attempt}</td>
-                <td>{row.started_at}</td>
-                <td>{row.finished_at}</td>
-                <td>{row.duration}</td>
-            </tr>
-            <tr>
-            <td style={{ height: 0, padding: 0 }} colSpan={7}>
-                {open && (
-                    <Sheet 
-                        variant="soft"
-                        sx={{ p: 2, m: 2, borderRadius: 4}}
-                    >
-                        <Typography level="h6" sx={{pb:1}}>
-                            Action details
-                        </Typography>
-                        <Typography level="body2">
-                            Some info
-                        </Typography>
-                        <Typography level="body2">
-                            What do you want displayed here?
-                        </Typography>
-                    </Sheet>
-                )}
-                </td>
+                <td><Typography noWrap={true}>{row.attempt}</Typography></td>
+                <td><Typography noWrap={true}>{row.started_at}</Typography></td>
+                <td><Typography noWrap={true}>{row.finished_at}</Typography></td>
+                <td><Typography noWrap={true}>{row.duration}</Typography></td>
             </tr>
         </>
-
     )
 
 
 }
 
 const TableOfActions = (props: { attempt: AttemptType; }) => {
+    const [open, setOpen] = React.useState(false);
     const rows = props.attempt.rows;
 
+    const handler = () => {
+        setOpen(!open);
+    }
+
     return (
-        <Sheet>
-            <Table 
-                size="sm" 
-                color='neutral' 
-                stickyHeader
+        <Sheet
+            sx={{
+                display: 'flex', 
+                justifyContent: 'space-between',
+            }}
+        >   
+            <Sheet
                 sx={{
-                    '& > thead > tr > th:nth-child(n + 3), & > tbody > tr > td:nth-child(n + 3)':
-                      { textAlign: 'right' },
-                    '& > tbody > tr:nth-child(odd) > td, & > tbody > tr:nth-child(odd) > th[scope="row"]':
-                      {
-                        borderBottom: 0,
-                      },
+                    height: '30rem', 
+                    overflow: 'auto'
                 }}
             >
-                <thead>
-                    <tr>
-                        <th  style={{width: 40}} aria-label="empty" />
-                        <th><b>Name</b></th>
-                        <th><b>Status</b></th>
-                        <th><b>Attempt</b></th>
-                        <th><b>Start</b></th>
-                        <th><b>Finish</b></th>
-                        <th><b>Duration</b></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {rows.map((row) => (
-                        <>
-                            <Row row={createData(row)}/>
-                        </>
-                    ))}
-                </tbody>
-            </Table>
+                <Table 
+                size="sm"
+                hoverRow
+                color='neutral' 
+                stickyHeader
+                >
+                    <thead>
+                        <tr>
+                            <th style={{width: '20%'}}><b>Name</b></th>
+                            <th><b>Status</b></th>
+                            <th><b>Attempt</b></th>
+                            <th><b>Start</b></th>
+                            <th><b>Finish</b></th>
+                            <th><b>Duration</b></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {rows.map((row) => (
+                            <>
+                                <Row row={createData(row)} handler={handler}/>
+                            </>
+                        ))}
+                    </tbody>
+                </Table>
+            </Sheet>
+            
+            {open && (
+                <Sheet
+                    sx={{minWidth: '50%'}}
+                >
+                    Tst
+                </Sheet>
+            )}
         </Sheet>
 
     );
