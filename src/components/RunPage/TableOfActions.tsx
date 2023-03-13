@@ -1,11 +1,11 @@
-import { Box, IconButton, Sheet, Table} from "@mui/joy";
+import { Sheet, Table} from "@mui/joy";
 import React from "react"
 import { AttemptType, Task } from "../../types";
 import { getISOString } from "../../utils/date";
 import { formatDuration } from "../../utils/format";
-import { TaskRow } from "../Timeline/VirtualizedTimeline";
-import Close from "@mui/icons-material/Close";
+import { TaskRow } from "./Timeline/VirtualizedTimeline";
 import Row from "./Row";
+import ContentDrawer from "./ContentDrawer";
 
 export function createData(taskRow: TaskRow) {
     const curr: Task = taskRow.data[0];
@@ -21,60 +21,33 @@ export function createData(taskRow: TaskRow) {
     })
 }
 
-const TableOfActions = (props: { attempt: AttemptType; }) => {
-    const renderTable = (rows: TaskRow[]) => {
-        return (
-            rows.map((row) => (
-                <>
-                    <Row row={createData(row)} setDrawerOpen={setDrawerOpen} isDrawerOpen={isDrawerOpen}/>
-                </>
-            ))
-        )
-    }
 
-    const content = () => {
-        return (
-            <Sheet
-                sx={{
-                    minWidth: '50%',
-                    ml: '2rem',
-                    p: '0.5rem',
-                    border: '1px solid',
-                    borderColor: 'lightgray',
-                    borderRadius: 4,
-                }}
-            >
-                <Box sx={{
-                    display: 'flex',
-                    flexDirection: 'row',
-                    justifyContent: 'space-between'
-                }}>
-                    <Box>
-                        Test
-                    </Box>
-                    <IconButton
-                        variant="plain" 
-                        color="neutral" 
-                        size="sm" 
-                        onClick={() => setOpen(false)}
-                    >
-                        <Close />
-                    </IconButton>
-                </Box>
-                
-            </Sheet>
-        )
-    }
+const TableOfActions = (props: { attempt: AttemptType; }) => {
+    const [open, setOpen] = React.useState(false);
+    const [content, setContent] = React.useState({name: '', actionDetails: {}});
+    
     const setDrawerOpen = (value: boolean) => {
         setOpen(value)
+    }
+
+    const updateContent = (object: any) => {
+        setContent(object)
     }
     
     const isDrawerOpen = () => {
         return open;
     }
-    
-    const [open, setOpen] = React.useState(false);
-    
+
+    const renderTable = (rows: TaskRow[]) => {
+        return (
+            rows.map((row) => (
+                <>
+                    <Row row={createData(row)} setDrawerOpen={setDrawerOpen} isDrawerOpen={isDrawerOpen} updateContent={updateContent}/>
+                </>
+            ))
+        )
+    }
+
     return (
         <Sheet
             sx={{
@@ -110,7 +83,7 @@ const TableOfActions = (props: { attempt: AttemptType; }) => {
                 </Table>
             </Sheet>
             
-            {open && content()}
+            {open && <ContentDrawer setDrawerOpen={setDrawerOpen} currentContent={content}/>}
         </Sheet>
 
     );

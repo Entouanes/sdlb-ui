@@ -6,7 +6,7 @@ import React from "react";
 import { Box } from "@mui/joy";
 import Attempt from "../../utils/Attempt";
 import TableOfActions from "./TableOfActions";
-import TimelineComponent from "../Timeline/TimelineComponent";
+import TimelineComponent from "./Timeline/TimelineComponent";
 
 type TabNavProp = {
     attempt: Attempt;

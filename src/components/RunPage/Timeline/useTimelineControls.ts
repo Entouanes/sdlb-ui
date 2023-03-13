@@ -1,6 +1,6 @@
 import { useEffect, useReducer } from 'react';
-import { Run } from '../../types';
-import { getLongestRowDuration, startAndEndpointsOfRows } from '../../utils/row';
+import { Run } from '../../../types';
+import { getLongestRowDuration, startAndEndpointsOfRows } from '../../../utils/row';
 import { Row } from './VirtualizedTimeline';
 
 //

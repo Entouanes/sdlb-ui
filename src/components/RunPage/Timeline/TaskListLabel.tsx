@@ -2,12 +2,12 @@ import { TFunction } from 'i18next';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled, { css } from 'styled-components';
-import { AsyncStatus, Step, Task } from '../../types';
-import { formatDuration } from '../../utils/format';
-import { getPath } from '../../utils/routing';
-import { colorByStatus } from '../../utils/style';
-import { getTaskDuration, getTaskId } from '../../utils/task';
-import Icon from '../../theme/Icon';
+import { AsyncStatus, Step, Task } from '../../../types';
+import { formatDuration } from '../../../utils/format';
+import { getPath } from '../../../utils/routing';
+import { colorByStatus } from '../../../utils/style';
+import { getTaskDuration, getTaskId } from '../../../utils/task';
+import Icon from '../../../theme/Icon';
 
 //
 // Typedef

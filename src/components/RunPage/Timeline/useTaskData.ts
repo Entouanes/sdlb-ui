@@ -1,4 +1,4 @@
-import { Task, Step, TaskStatus } from '../../types';
+import { Task, Step, TaskStatus } from '../../../types';
 import {
   getStepStatus,
   makeTasksForStep,

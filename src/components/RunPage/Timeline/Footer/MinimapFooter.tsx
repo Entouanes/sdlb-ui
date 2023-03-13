@@ -1,8 +1,8 @@
 import React, { createRef, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { Row, StepRow } from '../VirtualizedTimeline';
-import { getLongestRowDuration, getTaskLineStatus, startAndEndpointsOfRows } from '../../../utils/row';
-import { TaskStatus } from '../../../types';
+import { getLongestRowDuration, getTaskLineStatus, startAndEndpointsOfRows } from '../../../../utils/row';
+import { TaskStatus } from '../../../../types';
 import MinimapRow from './MinimapRow';
 import MinimapActiveSection from './MinimapActiveSection';
 import { TimelineMetrics } from '../Timeline';

@@ -1,10 +1,10 @@
 import React from 'react';
 import VirtualizedTimeline from './VirtualizedTimeline';
 import { ThemeProvider } from 'styled-components';
-import GlobalStyle from '../../GlobalStyle';
-import '../../theme/font/roboto.css'
-import theme from '../../theme';
-import Attempt from '../../utils/Attempt';
+import GlobalStyle from '../../../GlobalStyle';
+import '../../../theme/font/roboto.css'
+import theme from '../../../theme';
+import Attempt from '../../../utils/Attempt';
 
 type TimelineComponentProps = {
     attempt: Attempt;

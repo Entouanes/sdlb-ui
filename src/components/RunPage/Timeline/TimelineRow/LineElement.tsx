@@ -1,12 +1,12 @@
 import React from 'react';
 import styled, { DefaultTheme, keyframes, css } from 'styled-components';
-import { Step, Task } from '../../../types';
+import { Step, Task } from '../../../../types';
 import { StepRowData } from '../useTaskData';
 import { lineColor, getRowStatus, getLengthLabelPosition } from './utils';
-import { formatDuration } from '../../../utils/format';
+import { formatDuration } from '../../../../utils/format';
 import { lighten } from 'polished';
 import { useHistory } from 'react-router';
-import { getPathFor } from '../../../utils/routing';
+import { getPathFor } from '../../../../utils/routing';
 import { TasksSortBy } from '../useTaskListSettings';
 import { useTranslation } from 'react-i18next';
 

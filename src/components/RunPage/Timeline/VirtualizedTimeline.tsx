@@ -1,10 +1,10 @@
 import React, { useCallback } from 'react';
-import { Run } from '../../types';
+import { Run } from '../../../types';
 import styled from 'styled-components';
 import Timeline from './Timeline';
 import useTimelineControls from './useTimelineControls';
 
-import { Step, Task } from '../../types';
+import { Step, Task } from '../../../types';
 import { StepRowData } from './useTaskData';
 
 //

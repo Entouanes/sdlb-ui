@@ -7,13 +7,16 @@ const Row = (props: {
     row: ReturnType<typeof createData>;
     setDrawerOpen: (value: boolean) => void;
     isDrawerOpen: () => boolean;
+    updateContent: (object: any) => void
 }) => {
-    const { row, setDrawerOpen, isDrawerOpen } = props;
+    const { row, setDrawerOpen, isDrawerOpen, updateContent } = props;
         const handleClick = () => {
+            updateContent({
+                name: row.actionName,
+                actionDetails: row.actionDetails
+            })
             if (!isDrawerOpen()) {
                 setDrawerOpen(true);
-            } else {
-                // change content
             }
         }
 
