@@ -87,7 +87,10 @@ const VirtualizedTimeline: React.FC<MyTimelineProps> = ({
     (value: number) => timelineControlDispatch({ type: 'move', value: value }),
     [timelineControlDispatch],
   );
-
+  
+  const handleClick = () => {
+    console.log('shnit')
+  }
   return (
     <VirtualizedTimelineContainer>
         {rows.length > 0 && (
@@ -103,6 +106,7 @@ const VirtualizedTimeline: React.FC<MyTimelineProps> = ({
             }}
             onHandleMove={footerHandleUpdate}
             onMove={handleMove}
+            onStepRowClick={handleClick}
           />
         )}
     </VirtualizedTimelineContainer>

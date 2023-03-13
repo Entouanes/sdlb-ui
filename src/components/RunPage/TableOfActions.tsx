@@ -5,7 +5,6 @@ import { getISOString } from "../../utils/date";
 import { formatDuration } from "../../utils/format";
 import { TaskRow } from "./Timeline/VirtualizedTimeline";
 import Row from "./Row";
-import ContentDrawer from "./ContentDrawer";
 
 export function createData(taskRow: TaskRow) {
     const curr: Task = taskRow.data[0];
@@ -22,22 +21,19 @@ export function createData(taskRow: TaskRow) {
 }
 
 
-const TableOfActions = (props: { attempt: AttemptType; }) => {
-    const [open, setOpen] = React.useState(false);
-    const [content, setContent] = React.useState({name: '', actionDetails: {}});
-    
-    const setDrawerOpen = (value: boolean) => {
-        setOpen(value)
-    }
+const TableOfActions = (props: { 
+        attempt: AttemptType; 
+        content: {
+            name: string;
+            actionDetails: object;
+        };
+        setDrawerOpen: (value: boolean) => void;
+        isDrawerOpen: () => boolean;
+        updateContent: (object: any) => void
+    }) => {
 
-    const updateContent = (object: any) => {
-        setContent(object)
-    }
+    const { attempt, /* content, */ setDrawerOpen, isDrawerOpen, updateContent } = props;
     
-    const isDrawerOpen = () => {
-        return open;
-    }
-
     const renderTable = (rows: TaskRow[]) => {
         return (
             rows.map((row) => (
@@ -78,12 +74,10 @@ const TableOfActions = (props: { attempt: AttemptType; }) => {
                         </tr>
                     </thead>
                     <tbody>
-                        {renderTable(props.attempt.rows)}
+                        {renderTable(attempt.rows)}
                     </tbody>
                 </Table>
             </Sheet>
-            
-            {open && <ContentDrawer setDrawerOpen={setDrawerOpen} currentContent={content}/>}
         </Sheet>
 
     );

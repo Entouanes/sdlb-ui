@@ -55,7 +55,7 @@ const Timeline: React.FC<TimelineProps> = ({
   customMinimumHeight = 31.25,
   onHandleMove = () => null,
   onMove = () => null,
-  onStepRowClick = () => null,
+  onStepRowClick = (v) => console.log(v),
 }) => {
   const { t } = useTranslation();
 
@@ -200,7 +200,7 @@ type RowRendererProps = {
   rows: Row[];
   timeline: TimelineMetrics;
   searchStatus?: AsyncStatus;
-  onStepRowClick: (steid: string) => void;
+  onStepRowClick: (stepid: string) => void;
   paramsString: string;
   t: TFunction;
   dragging: boolean;

@@ -11,7 +11,7 @@ const ContentDrawer = (props: {
     return ( 
         <Sheet
             sx={{
-                minWidth: '60%',
+                minWidth: '50%',
                 ml: '1rem',
                 p: '1rem',
                 border: '1px solid',
