@@ -1,14 +1,13 @@
-import { Chip,/*  IconButton, */ Sheet, Table,/* , Typography */ 
-Typography} from "@mui/joy";
+import { Box, IconButton, Sheet, Table} from "@mui/joy";
 import React from "react"
 import { AttemptType, Task } from "../../types";
 import { getISOString } from "../../utils/date";
 import { formatDuration } from "../../utils/format";
 import { TaskRow } from "../Timeline/VirtualizedTimeline";
-/* import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight'; */
+import Close from "@mui/icons-material/Close";
+import Row from "./Row";
 
-function createData(taskRow: TaskRow) {
+export function createData(taskRow: TaskRow) {
     const curr: Task = taskRow.data[0];
             
     return ({
@@ -22,38 +21,60 @@ function createData(taskRow: TaskRow) {
     })
 }
 
-function Row(props: { row: ReturnType<typeof createData>; handler: () => void; initialOpen?: boolean }) {
-    
-    const { row, handler } = props;
-    
-    return (
-        <>
-            <tr onClick={handler}>
-                <td scope="row"><Typography noWrap={true}>{row.actionName}</Typography></td>
-                <td>
-                    <Chip variant="soft" size="sm" color={row.status === 'succeeded' ? 'success' : (row.status === 'skipped' ? 'neutral' : 'danger')}>
-                        <Typography noWrap={true}>{row.status}</Typography>
-                    </Chip>
-                </td>
-                <td><Typography noWrap={true}>{row.attempt}</Typography></td>
-                <td><Typography noWrap={true}>{row.started_at}</Typography></td>
-                <td><Typography noWrap={true}>{row.finished_at}</Typography></td>
-                <td><Typography noWrap={true}>{row.duration}</Typography></td>
-            </tr>
-        </>
-    )
-
-
-}
-
 const TableOfActions = (props: { attempt: AttemptType; }) => {
-    const [open, setOpen] = React.useState(false);
-    const rows = props.attempt.rows;
-
-    const handler = () => {
-        setOpen(!open);
+    const renderTable = (rows: TaskRow[]) => {
+        return (
+            rows.map((row) => (
+                <>
+                    <Row row={createData(row)} setDrawerOpen={setDrawerOpen} isDrawerOpen={isDrawerOpen}/>
+                </>
+            ))
+        )
     }
 
+    const content = () => {
+        return (
+            <Sheet
+                sx={{
+                    minWidth: '50%',
+                    ml: '2rem',
+                    p: '0.5rem',
+                    border: '1px solid',
+                    borderColor: 'lightgray',
+                    borderRadius: 4,
+                }}
+            >
+                <Box sx={{
+                    display: 'flex',
+                    flexDirection: 'row',
+                    justifyContent: 'space-between'
+                }}>
+                    <Box>
+                        Test
+                    </Box>
+                    <IconButton
+                        variant="plain" 
+                        color="neutral" 
+                        size="sm" 
+                        onClick={() => setOpen(false)}
+                    >
+                        <Close />
+                    </IconButton>
+                </Box>
+                
+            </Sheet>
+        )
+    }
+    const setDrawerOpen = (value: boolean) => {
+        setOpen(value)
+    }
+    
+    const isDrawerOpen = () => {
+        return open;
+    }
+    
+    const [open, setOpen] = React.useState(false);
+    
     return (
         <Sheet
             sx={{
@@ -68,38 +89,28 @@ const TableOfActions = (props: { attempt: AttemptType; }) => {
                 }}
             >
                 <Table 
-                size="sm"
-                hoverRow
-                color='neutral' 
-                stickyHeader
+                    size="sm"
+                    hoverRow
+                    color='neutral' 
+                    stickyHeader
                 >
                     <thead>
                         <tr>
-                            <th style={{width: '20%'}}><b>Name</b></th>
+                            <th><b>Name</b></th>
                             <th><b>Status</b></th>
-                            <th><b>Attempt</b></th>
-                            <th><b>Start</b></th>
-                            <th><b>Finish</b></th>
-                            <th><b>Duration</b></th>
+                            <th style={{width: '15%'}}><b>Attempt</b></th>
+                            <th style={{width: '15%'}}><b>Start</b></th>
+                            <th style={{width: '15%'}}><b>Finish</b></th>
+                            <th style={{width: '15%'}}><b>Duration</b></th>
                         </tr>
                     </thead>
                     <tbody>
-                        {rows.map((row) => (
-                            <>
-                                <Row row={createData(row)} handler={handler}/>
-                            </>
-                        ))}
+                        {renderTable(props.attempt.rows)}
                     </tbody>
                 </Table>
             </Sheet>
             
-            {open && (
-                <Sheet
-                    sx={{minWidth: '50%'}}
-                >
-                    Tst
-                </Sheet>
-            )}
+            {open && content()}
         </Sheet>
 
     );
